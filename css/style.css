@@ -6,6 +6,11 @@ body {
    font-size: 0.9rem;
 }
 
+.lr-standard-pad {
+   padding-left: 10px;
+   padding-right: 10px;
+}
+
 .shrinker {
    overflow-y: auto;
 }
@@ -54,6 +59,7 @@ input {
 .left {
    width: 40%;
    background-color: white;
+   border-right: 1px solid grey;
 }
 
 /*    * .get-nots
@@ -88,7 +94,8 @@ input {
 
 .search {
    opacity: 0.4;
-   padding: 10px;
+   padding-top: 5px;
+   padding-bottom: 5px;
    background-color: #fafafa;
 }
 

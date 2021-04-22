@@ -22,7 +22,7 @@ var app = new Vue({
                         text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, cupiditate veniam quos animi necessitatibus, ab, non rerum voluptas labore natus officiis illo sunt quidem adipisci ut? Temporibus voluptas iste et.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, cupiditate veniam quos animi necessitatibus, ab, non rerum voluptas labore natus officiis illo sunt quidem adipisci ut? Temporibus voluptas iste et.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, cupiditate veniam quos animi necessitatibus, ab, non rerum voluptas labore natus officiis illo sunt quidem adipisci ut? Temporibus voluptas iste et.'.repeat(5),
                         sent: false
                     },
-                    
+
                 ],
             },
             {
@@ -89,17 +89,28 @@ var app = new Vue({
         ],
         activeConversation: 0
     },
-    methods: {},
-    created() { 
+    methods: {
+        showConversation(index) {
+            this.activeConversation = index;
+            setTimeout(() => {
+                document.getElementById('conv').scrollTop = 999999
+            })
+        }
+    },
+    created() {
+        setTimeout(() => {
+            document.getElementById('conv').scrollTop = 999999
+        })
     }
 })
 
 // alert(dayjs().format())
-/* 
+/*
  * function (detailed!) description
  *
  * @param  || description
  * @param  || description
- * 
+ *
  * @return || description
 */
+

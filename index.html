@@ -43,7 +43,7 @@
                         </div>
                     </div>
                     <!-- div.search -->
-                    <div class="search flexer center-cross">
+                    <div class="search flexer center-cross lr-standard-pad">
                         <i class="fas fa-search"></i>
                         <input type="text" placeholder="Cerca o inizia nuova chat"
                             aria-label="Cerca o inizia nuova chat">
@@ -52,8 +52,8 @@
 
                     <!-- ul.conv-list -->
                     <ul class="conv-list grower shrinker">
-                        <li v-for="(item, index) in contacts" class="flexer"
-                            :class="{selected: index  === activeConversation}" @click="activeConversation = index">
+                        <li v-for="(item, index) in contacts" class="flexer lr-standard-pad"
+                            :class="{selected: index  === activeConversation}" @click="showConversation(index)">
                             <img :src=`img/avatar${item.avatar}.jpg` alt="" class="rounded">
                             <span>{{ item.name }}</span>
                         </li>
@@ -76,11 +76,13 @@
                         </div>
 
                     </div>
-                    <div class="conversation grower shrinker">
-                        <li v-for="item in contacts[activeConversation].messages" :class="{ sent: item.sent }">
-                            <p>{{ item.text }}</p>
-                            <p class="date">{{ item.date }}</p>
-                        </li>
+                    <div  id="conv" class="conversation grower shrinker">
+                        <ul>
+                            <li v-for="item in contacts[activeConversation].messages" :class="{ sent: item.sent }">
+                                <p>{{ item.text }}</p>
+                                <p class="date">{{ item.date }}</p>
+                            </li>
+                        </ul>
 
                     </div>
                     <!-- div.send -->
@@ -96,14 +98,7 @@
                 </div>
             </main>
         </div>
-        <!-- HEADER -->
-        <!-- END HEADER -->
 
-        <!-- MAIN -->
-        <!-- END MAIN -->
-
-        <!-- FOOTER -->
-        <!-- END FOOTER -->
     </div>
     <!-- END VUE CONTAINER -->
     <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
