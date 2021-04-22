@@ -87,7 +87,7 @@ var app = new Vue({
                 ],
             },
         ],
-        activeConversation: 2
+        activeConversation: 0
     },
     methods: {},
     created() { 

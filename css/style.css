@@ -1,9 +1,10 @@
 /* COMMON
    ======================= */
-   body {
-      font-family: 'Roboto Condensed', sans-serif;
-      font-size: 0.9rem;
-   }
+
+body {
+   font-family: 'Roboto Condensed', sans-serif;
+   font-size: 0.9rem;
+}
 
 .shrinker {
    overflow-y: auto;
@@ -25,6 +26,7 @@
 .right {
    width: 60%;
 }
+
 /* 
 .user-pic {
    width: 60px;
@@ -32,10 +34,6 @@
 
 input {
    width: 100%;
-}
-
-.conv-list img {
-   width: 40px;
 }
 
 /* ======================= */
@@ -57,6 +55,7 @@ input {
    padding: 10px;
    background-color: #eaeaea;
 }
+
 .sect-header img {
    height: 50px;
    width: auto;
@@ -66,7 +65,6 @@ input {
    color: #b9b9b9;
    font-size: 1.4rem;
    margin-left: 0.5rem
-
 }
 
 /*    -------------------- */
@@ -120,21 +118,23 @@ main {
 
 /*    * send
       -------------------- */
-      .send {
-         background: #f3eeea;
-         padding: 10px;
-         font-size: 1.4rem
-      }
-      .send input {
-         padding: 0.7rem;
-         border: none
-      }
-      .send i {
-         color: #6a7376;
-         padding-left: 15px;
-         padding-right: 15px;
-      }
 
+.send {
+   background: #f3eeea;
+   padding: 10px;
+   font-size: 1.4rem
+}
+
+.send input {
+   padding: 0.7rem;
+   border: none
+}
+
+.send i {
+   color: #6a7376;
+   padding-left: 15px;
+   padding-right: 15px;
+}
 
 /*    -------------------- */
 
@@ -145,6 +145,72 @@ main {
 
 /*    * stuff
       -------------------- */
+
+/*    -------------------- */
+
+/* ======================= */
+
+/* LEFT
+   ======================= */
+
+/*    * .get-nots
+      -------------------- */
+
+.get-nots {
+   background-color: #8edafb;
+   padding: 10px;
+}
+
+.bell-icon {
+   background-color: white;
+   color: #8edafb;
+   font-size: 1.2rem;
+   padding: 10px;
+}
+
+.get-nots .text {
+   padding-left: 10px;
+}
+
+.get-nots a {
+   text-decoration: underline;
+   font-size: 0.8rem;
+   opacity: 0.4;
+}
+
+/*    -------------------- */
+
+/*    *  .search
+      -------------------- */
+
+.search {
+   opacity: 0.4;
+   padding: 10px;
+   background-color: #fafafa;
+}
+
+.search input {
+   opacity: 1;
+   padding: 3px;
+   font-size: 80%;
+   border: none;
+}
+
+/*    -------------------- */
+
+/*    * .conv-list
+      -------------------- */
+.conv-list li {
+   padding-top: 10px;
+   padding-bottom: 10px;
+}
+
+.conv-list li:hover, .conv-list li.selected {
+   background-color: #e9ebeb;
+}
+.conv-list img {
+   width: 40px;
+}
 
 /*    -------------------- */
 

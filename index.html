@@ -35,19 +35,33 @@
                     </div>
                     <!-- END div.left.sect-header -->
 
-                    <div class="no-shrink">
-                        Ricevi nuove notifiche
+                    <div class="get-nots no-shrink flexer">
+                        <div class="bell-icon rounded">
+                            <i class="fas fa-bell-slash"></i>
+                        </div>
+                        <div class="text">
+                            <p>Ricevi notifiche di nuovi messaggi</p>
+                            <a href="#">Attiva notifiche desktop</a>
+                        </div>
                     </div>
-                    <div class="search">
+                    <!-- div.search -->
+                    <div class="search flexer center-cross">
+                        <i class="fas fa-search"></i>
                         <input type="text" placeholder="Cerca o inizia nuova chat"
                             aria-label="Cerca o inizia nuova chat">
                     </div>
+                    <!-- END div.search -->
+
+                    <!-- ul.conv-list -->
                     <ul class="conv-list grower shrinker">
-                        <li v-for="(item, index) in contacts" class="flexer" @click="activeConversation = index">
+                        <li v-for="(item, index) in contacts" class="flexer"
+                        :class="{selected: index  === activeConversation}" @click="activeConversation = index">
                             <img :src=`img/avatar${item.avatar}.jpg` alt="" class="rounded">
                             <span>{{ item.name }}</span>
                         </li>
                     </ul>
+                    <!-- END ul.conv-list -->
+
                 </div>
                 <div class="right flexer col">
                     <div class="sect-header no-shrink flexer center-cross">
