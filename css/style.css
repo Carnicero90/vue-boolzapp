@@ -4,6 +4,7 @@
 body {
    font-family: 'Roboto', sans-serif;
    font-size: 0.9rem;
+   min-width: 700px;
 }
 
 .lr-standard-pad {
@@ -118,6 +119,7 @@ input {
 
 .conv-list li:hover, .conv-list li.selected {
    background-color: #e9ebeb;
+   cursor: pointer;
 }
 
 .conv-list img {

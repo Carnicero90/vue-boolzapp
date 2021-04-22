@@ -33,7 +33,8 @@
                     </div>
                     <!-- END div.left.sect-header -->
 
-                    <div class="get-nots no-shrink flexer">
+                    <!-- div.get-nots -->
+                    <div class="get-nots no-shrink flexer center-cross">
                         <div class="bell-icon rounded">
                             <i class="fas fa-bell-slash"></i>
                         </div>
@@ -42,6 +43,8 @@
                             <a href="#">Attiva notifiche desktop</a>
                         </div>
                     </div>
+                    <!-- END div.get-nots -->
+
                     <!-- div.search -->
                     <div class="search flexer center-cross lr-standard-pad">
                         <i class="fas fa-search"></i>
@@ -76,7 +79,7 @@
                         </div>
 
                     </div>
-                    <div  id="conv" class="conversation grower shrinker">
+                    <div id="conv" class="conversation grower shrinker">
                         <ul>
                             <li v-for="item in contacts[activeConversation].messages" :class="{ sent: item.sent }">
                                 <p>{{ item.text }}</p>
