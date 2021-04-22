@@ -89,8 +89,7 @@ var app = new Vue({
                         sent: false
                     }
                 ],
-            },
-            
+            },         
             {
                 name: 'Ian',
                 avatar: '_8',

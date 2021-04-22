@@ -94,15 +94,17 @@ input {
          -------------------- */
 
 .search {
-   opacity: 0.4;
-   padding-top: 5px;
-   padding-bottom: 5px;
    background-color: #fafafa;
 }
-
+.search-input {
+   color: #b9bcbe;
+   background-color: white;
+   box-shadow: rgba(0, 0, 0, 0.04) 0px 0px 4px 0px, rgba(0, 0, 0, 0.08) 0px 8px 16px 0px;
+   border-radius: 5px;
+}
 .search input {
-   opacity: 1;
    padding: 3px;
+   padding-left: 20px;
    font-size: 80%;
    border: none;
 }
@@ -115,6 +117,9 @@ input {
 .conv-list li:hover, .conv-list li.selected {
    background-color: #e9ebeb;
    cursor: pointer;
+}
+.conv-list li:nth-of-type(1n+2) {
+   border-top: 1px solid lightgrey
 }
 
 .conv-list img {
@@ -146,15 +151,17 @@ input {
    padding-bottom: 3px;
    padding-right: 3px;
    border-radius: 10px;
-   background: #d5f9ba;
    width: 40%;
-   margin-left: auto;
    margin-bottom: 20px;
+   background: white;
+   margin-left: 0
 }
 
 .conversation li.sent {
-   background: white;
-   margin-left: 0
+   background: #d5f9ba;
+   margin-left: auto;
+
+
 }
 
 .date {
