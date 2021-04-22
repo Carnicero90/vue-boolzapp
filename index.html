@@ -16,8 +16,14 @@
 <body>
     <!-- VUE CONTAINER -->
     <div id="root">
+
+        <!-- div.main-wrapper -->
         <div class="main-wrapper flexer col">
+
+            <!-- MAIN -->
             <main class="flexer">
+
+                <!-- div.left -->
                 <div class="left flexer col">
                     <!-- div.left.sect-header -->
                     <div class="sect-header no-shrink flexer center-cross">
@@ -64,7 +70,12 @@
                     <!-- END ul.conv-list -->
 
                 </div>
+                <!-- END div.left -->
+
+                <!-- div.right -->
                 <div class="right flexer col">
+
+                    <!-- div.sect-header -->
                     <div class="sect-header no-shrink flexer center-cross">
                         <div class="user-pic"><img :src=`img/avatar${contacts[activeConversation].avatar}.jpg` alt="pic"
                                 class="rounded"></div>
@@ -77,8 +88,10 @@
                             <i class="fas fa-paperclip"></i>
                             <i class="fas fa-ellipsis-v"></i>
                         </div>
-
                     </div>
+                    <!-- END div.sect-header -->
+
+                    <!-- div.conversation -->
                     <div id="conv" class="conversation grower shrinker">
                         <ul>
                             <li v-for="item in contacts[activeConversation].messages" :class="{ sent: item.sent }">
@@ -86,8 +99,9 @@
                                 <p class="date">{{ item.date }}</p>
                             </li>
                         </ul>
-
                     </div>
+                    <!-- END div.conversation -->
+
                     <!-- div.send -->
                     <div class="send flexer center-cross">
                         <i class="far fa-smile"></i>
@@ -98,9 +112,15 @@
                         <i class="fas fa-microphone"></i>
                     </div>
                     <!-- END div.send -->
+
                 </div>
+                <!-- END div.right -->
+
             </main>
+            <!-- END MAIN -->
+
         </div>
+        <!-- END div.main-wrapper -->
 
     </div>
     <!-- END VUE CONTAINER -->
