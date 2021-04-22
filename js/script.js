@@ -6,6 +6,7 @@ var app = new Vue({
                 name: 'Michele',
                 avatar: '_1',
                 visible: true,
+                scrolled: 0,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -29,6 +30,7 @@ var app = new Vue({
                 name: 'Fabio',
                 avatar: '_2',
                 visible: true,
+                scrolled: 0,
                 messages: [
                     {
                         date: '20/03/2020 16:30:00',
@@ -51,6 +53,7 @@ var app = new Vue({
                 name: 'Samuele',
                 avatar: '_3',
                 visible: true,
+                scrolled: 0,
                 messages: [
                     {
                         date: '28/03/2020 10:10:40',
@@ -73,6 +76,7 @@ var app = new Vue({
                 name: 'Luisa',
                 avatar: '_4',
                 visible: true,
+                scrolled: 0,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -86,18 +90,47 @@ var app = new Vue({
                     }
                 ],
             },
+            
+            {
+                name: 'Ian',
+                avatar: '_8',
+                visible: true,
+                scrolled: 0,
+                messages: [
+                    {
+                        date: '10/01/2020 15:30:55',
+                        text: 'Hai portato a spasso il cane?',
+                        sent: true
+                    },
+                    {
+                        date: '10/01/2020 15:50:00',
+                        text: 'Ricordati di dargli da mangiare',
+                        sent: true
+                    },
+                    {
+                        date: '10/01/2020 16:15:22',
+                        text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, cupiditate veniam quos animi necessitatibus, ab, non rerum voluptas labore natus officiis illo sunt quidem adipisci ut? Temporibus voluptas iste et.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, cupiditate veniam quos animi necessitatibus, ab, non rerum voluptas labore natus officiis illo sunt quidem adipisci ut? Temporibus voluptas iste et.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, cupiditate veniam quos animi necessitatibus, ab, non rerum voluptas labore natus officiis illo sunt quidem adipisci ut? Temporibus voluptas iste et.'.repeat(5),
+                        sent: false
+                    },
+
+                ],
+            },
+            
         ],
         activeConversation: 0
     },
     methods: {
         showConversation(index) {
+            // TEST
+            this.contacts[this.activeConversation].scrolled = document.getElementById('conv').scrollTop
             this.activeConversation = index;
             setTimeout(() => {
-                document.getElementById('conv').scrollTop = 999999
+                document.getElementById('conv').scrollTop =this.contacts[this.activeConversation].scrolled || 999999
             })
         }
     },
     created() {
+        // TEST
         setTimeout(() => {
             document.getElementById('conv').scrollTop = 999999
         })
