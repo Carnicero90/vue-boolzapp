@@ -2,44 +2,13 @@
    ======================= */
 
 body {
-   font-family: 'Roboto Condensed', sans-serif;
+   font-family: 'Roboto', sans-serif;
    font-size: 0.9rem;
 }
 
 .shrinker {
    overflow-y: auto;
 }
-
-.container {
-   height: 100vh
-}
-
-.left {
-   width: 40%;
-   background-color: white;
-}
-
-.boh {
-   height: 100%;
-}
-
-.right {
-   width: 60%;
-}
-
-/* 
-.user-pic {
-   width: 60px;
-} */
-
-input {
-   width: 100%;
-}
-
-/* ======================= */
-
-/* HEADER
-   ======================= */
 
 .main-wrapper {
    padding: 10px 10%;
@@ -69,28 +38,109 @@ input {
 
 /*    -------------------- */
 
+.boh {
+   height: 100%;
+}
+
+input {
+   width: 100%;
+}
+
+/* ======================= */
+
+/* LEFT
+   ======================= */
+
+.left {
+   width: 40%;
+   background-color: white;
+}
+
+/*    * .get-nots
+         -------------------- */
+
+.get-nots {
+   background-color: #8edafb;
+   padding: 10px;
+}
+
+.bell-icon {
+   background-color: white;
+   color: #8edafb;
+   font-size: 1.2rem;
+   padding: 10px;
+}
+
+.get-nots .text {
+   padding-left: 10px;
+}
+
+.get-nots a {
+   text-decoration: underline;
+   font-size: 0.8rem;
+   opacity: 0.4;
+}
+
+/*    -------------------- */
+
+/*    *  .search
+         -------------------- */
+
+.search {
+   opacity: 0.4;
+   padding: 10px;
+   background-color: #fafafa;
+}
+
+.search input {
+   opacity: 1;
+   padding: 3px;
+   font-size: 80%;
+   border: none;
+}
+
+/*    -------------------- */
+
+/*    * .conv-list
+         -------------------- */
+
+.conv-list li {
+   padding-top: 10px;
+   padding-bottom: 10px;
+}
+
+.conv-list li:hover, .conv-list li.selected {
+   background-color: #e9ebeb;
+}
+
+.conv-list img {
+   width: 40px;
+}
+
+/*    -------------------- */
+
+/* ======================= */
+
+/* RIGHT
+   ======================= */
+
+.right {
+   width: 60%;
+}
+
+/*    * .conversation
+      -------------------- */
+
 .conversation {
    background-image: url('../img/mine.jpg');
    padding: 30px;
 }
 
-/* ======================= */
-
-/* MAIN
-   ======================= */
-
-main {
-   height: calc(100vh -20px);
-   overflow: hidden;
-}
-
-/*    * send
-      -------------------- */
-
 .conversation li {
    padding-top: 10px;
    padding-left: 5px;
    padding-bottom: 3px;
+   padding-right: 3px;
    border-radius: 10px;
    background: #d5f9ba;
    width: 40%;
@@ -110,11 +160,6 @@ main {
 }
 
 /*    -------------------- */
-
-/* ======================= */
-
-/* FOOTER
-   ======================= */
 
 /*    * send
       -------------------- */
@@ -145,72 +190,6 @@ main {
 
 /*    * stuff
       -------------------- */
-
-/*    -------------------- */
-
-/* ======================= */
-
-/* LEFT
-   ======================= */
-
-/*    * .get-nots
-      -------------------- */
-
-.get-nots {
-   background-color: #8edafb;
-   padding: 10px;
-}
-
-.bell-icon {
-   background-color: white;
-   color: #8edafb;
-   font-size: 1.2rem;
-   padding: 10px;
-}
-
-.get-nots .text {
-   padding-left: 10px;
-}
-
-.get-nots a {
-   text-decoration: underline;
-   font-size: 0.8rem;
-   opacity: 0.4;
-}
-
-/*    -------------------- */
-
-/*    *  .search
-      -------------------- */
-
-.search {
-   opacity: 0.4;
-   padding: 10px;
-   background-color: #fafafa;
-}
-
-.search input {
-   opacity: 1;
-   padding: 3px;
-   font-size: 80%;
-   border: none;
-}
-
-/*    -------------------- */
-
-/*    * .conv-list
-      -------------------- */
-.conv-list li {
-   padding-top: 10px;
-   padding-bottom: 10px;
-}
-
-.conv-list li:hover, .conv-list li.selected {
-   background-color: #e9ebeb;
-}
-.conv-list img {
-   width: 40px;
-}
 
 /*    -------------------- */
 

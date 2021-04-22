@@ -6,9 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link rel="stylesheet" href="css/my_frame.css">
     <link rel="stylesheet" href="css/style.css">
@@ -18,7 +16,7 @@
 <body>
     <!-- VUE CONTAINER -->
     <div id="root">
-        <div class="main-wrapper flexer col container">
+        <div class="main-wrapper flexer col">
             <main class="flexer boh">
                 <div class="left flexer col">
                     <!-- div.left.sect-header -->
@@ -55,7 +53,7 @@
                     <!-- ul.conv-list -->
                     <ul class="conv-list grower shrinker">
                         <li v-for="(item, index) in contacts" class="flexer"
-                        :class="{selected: index  === activeConversation}" @click="activeConversation = index">
+                            :class="{selected: index  === activeConversation}" @click="activeConversation = index">
                             <img :src=`img/avatar${item.avatar}.jpg` alt="" class="rounded">
                             <span>{{ item.name }}</span>
                         </li>
