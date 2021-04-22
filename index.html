@@ -26,7 +26,7 @@
                 <!-- div.left -->
                 <div class="left flexer col">
                     <!-- div.left.sect-header -->
-                    <div class="sect-header no-shrink flexer center-cross">
+                    <div class="sect-header no-shrink flexer center-cross lr-standard-pad">
                         <div class="user-pic"><img src="img/avatar_io.jpg" alt="pic" class="rounded"></div>
                         <div class="user-name grower">
                             <p>Nome Utente</p>
@@ -40,7 +40,7 @@
                     <!-- END div.left.sect-header -->
 
                     <!-- div.get-nots -->
-                    <div class="get-nots no-shrink flexer center-cross">
+                    <div class="get-nots no-shrink flexer center-cross lr-standard-pad">
                         <div class="bell-icon rounded">
                             <i class="fas fa-bell-slash"></i>
                         </div>
@@ -76,7 +76,7 @@
                 <div class="right flexer col">
 
                     <!-- div.sect-header -->
-                    <div class="sect-header no-shrink flexer center-cross">
+                    <div class="sect-header no-shrink flexer center-cross lr-standard-pad">
                         <div class="user-pic"><img :src=`img/avatar${contacts[activeConversation].avatar}.jpg` alt="pic"
                                 class="rounded"></div>
                         <div class="user-name flexer-col grower">
@@ -103,13 +103,13 @@
                     <!-- END div.conversation -->
 
                     <!-- div.send -->
-                    <div class="send flexer center-cross">
+                    <div class="send flexer center-cross lr-standard-pad">
                         <i class="far fa-smile"></i>
                         <div class="grower">
                             <input name="" id="" placeholder="Scrivi un messaggio">
                         </div>
-
-                        <i class="fas fa-microphone"></i>
+                        <div><i class="fas fa-microphone"></i></div>
+                        
                     </div>
                     <!-- END div.send -->
 
@@ -124,8 +124,12 @@
 
     </div>
     <!-- END VUE CONTAINER -->
+
+    <!-- day.js -->
     <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <!-- vue.js -->
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!-- local scripts -->
     <script src="js/script.js"></script>
 </body>
 

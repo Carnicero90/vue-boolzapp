@@ -10,6 +10,8 @@ body {
 .lr-standard-pad {
    padding-left: 10px;
    padding-right: 10px;
+   padding-top: 10px;
+   padding-bottom: 10px;
 }
 
 .shrinker {
@@ -17,7 +19,7 @@ body {
 }
 
 .main-wrapper {
-   padding: 10px 10%;
+   padding: 20px 10%;
    background: linear-gradient(to top, #d5dad8 85%, #069588 15%);
    overflow: hidden;
    height: 100vh;
@@ -27,7 +29,6 @@ body {
       -------------------- */
 
 .sect-header {
-   padding: 10px;
    background-color: #eaeaea;
 }
 
@@ -68,7 +69,6 @@ input {
 
 .get-nots {
    background-color: #8edafb;
-   padding: 10px;
 }
 
 .bell-icon {
@@ -111,11 +111,6 @@ input {
 
 /*    * .conv-list
          -------------------- */
-
-.conv-list li {
-   padding-top: 10px;
-   padding-bottom: 10px;
-}
 
 .conv-list li:hover, .conv-list li.selected {
    background-color: #e9ebeb;
@@ -175,19 +170,19 @@ input {
 
 .send {
    background: #f3eeea;
-   padding: 10px;
    font-size: 1.4rem
 }
-
+.send .grower {
+   padding-left: 10px;
+   padding-right: 10px;
+}
 .send input {
    padding: 0.7rem;
-   border: none
+   border: none;
 }
 
 .send i {
    color: #6a7376;
-   padding-left: 15px;
-   padding-right: 15px;
 }
 
 /*    -------------------- */
