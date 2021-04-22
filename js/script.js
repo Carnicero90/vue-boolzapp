@@ -1,7 +1,55 @@
 var app = new Vue({
     el: '#root',
     data: {
-        contacts: [
+        contacts: [            {
+            name: 'Alessandro Scolozzi',
+            avatar: '_5',
+            scrolled: 0,
+            messages: [
+                {
+                    date: '10/01/2020 15:30:55',
+                    text: 'Metti i commenti!',
+                    sent: false
+                },
+                {
+                    date: '10/01/2020 15:50:00',
+                    text: 'No.',
+                    sent: true
+                }
+            ],
+        },            {
+            name: 'Donato Riccio',
+            avatar: '_7',
+            scrolled: 0,
+            messages: [
+                {
+                    date: '10/01/2020 15:30:55',
+                    text: 'Attieniti alle consegne!',
+                    sent: false
+                },
+                {
+                    date: '10/01/2020 15:50:00',
+                    text: 'No.',
+                    sent: true
+                }
+            ],
+        },            {
+            name: 'Simone Taccori',
+            avatar: '_2',
+            scrolled: 0,
+            messages: [
+                {
+                    date: '10/01/2020 15:30:55',
+                    text: 'Scrivi bel codice!',
+                    sent: false
+                },
+                {
+                    date: '10/01/2020 15:50:00',
+                    text: 'No.',
+                    sent: true
+                }
+            ],
+        },
             {
                 name: 'Michele',
                 avatar: '_1',
@@ -27,7 +75,7 @@ var app = new Vue({
             },
             {
                 name: 'Fabio',
-                avatar: '_2',
+                avatar: '_6',
                 scrolled: 0,
                 messages: [
                     {
