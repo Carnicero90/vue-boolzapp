@@ -55,7 +55,7 @@
                     <div class="search lr-standard-pad">
                         <div class="search-input flexer center-cross">
                             <i class="fas fa-search"></i>
-                            <input type="text" placeholder="Cerca o inizia nuova chat"
+                            <input v-model="filter" type="text" placeholder="Cerca o inizia nuova chat"
                                 aria-label="Cerca o inizia nuova chat">
                         </div>
 
@@ -64,8 +64,8 @@
 
                     <!-- ul.conv-list -->
                     <ul class="conv-list grower shrinker">
-                        <li v-for="(item, index) in contacts" class="flexer lr-standard-pad"
-                            :class="{selected: index  === activeConversation}" @click="showConversation(index)">
+                        <li v-for="(item, index) in filterContacts(filter)" class="flexer lr-standard-pad"
+                            :class="{selected: contacts.indexOf(item)  === activeConversation}" @click="showConversation(contacts.indexOf(item))">
                             <img :src=`img/avatar${item.avatar}.jpg` alt="" class="rounded">
                             <span>{{ item.name }}</span>
                         </li>
@@ -111,7 +111,10 @@
                         <div><i class="far fa-smile"></i></div>
                         <div class="grower">
                             <input name="message" id="message" placeholder="Scrivi un messaggio"
-                                aria-label="Scrivi un messaggio">
+                                aria-label="Scrivi un messaggio"
+                                v-model="newMessage"
+                                @keyup.enter="sendMessage(newMessage)"
+                               >
                         </div>
                         <div><i class="fas fa-microphone"></i></div>
 

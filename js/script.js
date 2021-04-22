@@ -5,7 +5,6 @@ var app = new Vue({
             {
                 name: 'Michele',
                 avatar: '_1',
-                visible: true,
                 scrolled: 0,
                 messages: [
                     {
@@ -29,7 +28,6 @@ var app = new Vue({
             {
                 name: 'Fabio',
                 avatar: '_2',
-                visible: true,
                 scrolled: 0,
                 messages: [
                     {
@@ -52,7 +50,6 @@ var app = new Vue({
             {
                 name: 'Samuele',
                 avatar: '_3',
-                visible: true,
                 scrolled: 0,
                 messages: [
                     {
@@ -75,7 +72,6 @@ var app = new Vue({
             {
                 name: 'Luisa',
                 avatar: '_4',
-                visible: true,
                 scrolled: 0,
                 messages: [
                     {
@@ -93,7 +89,6 @@ var app = new Vue({
             {
                 name: 'Ian',
                 avatar: '_8',
-                visible: true,
                 scrolled: 0,
                 messages: [
                     {
@@ -116,13 +111,14 @@ var app = new Vue({
             },
 
         ],
+        newMessage: '',
         activeConversation: 0,
         activeDate: '',
         // time: -1,
         // t: 0,
         // disp: false,
-        // byUser: false
-
+        // byUser: false,
+        filter: ''
     },
     methods: {
         showConversation(index) {
@@ -131,7 +127,29 @@ var app = new Vue({
             this.activeConversation = index;
             this.$nextTick(() => document.getElementById('conv').scrollTop = this.contacts[this.activeConversation].scrolled || 999999);
             // this.$nextTick(() => this.byUser = true)
-            
+
+        },
+        sendMessage(message) {
+            const newMessage =  {
+                date: '10/01/2020 15:30:55',
+                text: message,
+                sent: true
+            };
+            this.contacts[this.activeConversation].messages.push(newMessage);
+            this.newMessage = '';
+            setTimeout(() => {
+                const autoMessage =  {
+                    date: '10/01/2020 15:30:55',
+                    text: 'ok',
+                    sent: false
+                };
+                this.contacts[this.activeConversation].messages.push(autoMessage);
+            }, 1000);
+            this.$nextTick(() => document.getElementById('conv').scrollTop = 999999);
+        },
+
+        filterContacts(filter) {
+            return this.contacts.filter((item) => item.name.toLowerCase().includes(filter.toLowerCase()))
         },
         // SUPERTEST, PORCATE BONUS
         // check() {
@@ -156,7 +174,7 @@ var app = new Vue({
     },
     created() {
         // TEST
-        this.$nextTick(()=> document.getElementById('conv').scrollTop = 999999)
+        this.$nextTick(() => document.getElementById('conv').scrollTop = 999999)
     }
 })
 
