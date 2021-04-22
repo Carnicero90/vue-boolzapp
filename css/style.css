@@ -1,0 +1,151 @@
+/* COMMON
+   ======================= */
+   body {
+      font-family: 'Roboto Condensed', sans-serif;
+      font-size: 0.9rem;
+   }
+
+.shrinker {
+   overflow-y: auto;
+}
+
+.container {
+   height: 100vh
+}
+
+.left {
+   width: 40%;
+   background-color: white;
+}
+
+.boh {
+   height: 100%;
+}
+
+.right {
+   width: 60%;
+}
+/* 
+.user-pic {
+   width: 60px;
+} */
+
+input {
+   width: 100%;
+}
+
+.conv-list img {
+   width: 40px;
+}
+
+/* ======================= */
+
+/* HEADER
+   ======================= */
+
+.main-wrapper {
+   padding: 10px 10%;
+   background: linear-gradient(to top, #d5dad8 85%, #069588 15%);
+   overflow: hidden;
+   height: 100vh;
+}
+
+/*    * sect-header
+      -------------------- */
+
+.sect-header {
+   padding: 10px;
+   background-color: #eaeaea;
+}
+.sect-header img {
+   height: 50px;
+   width: auto;
+}
+
+.sect-header .actions i {
+   color: #b9b9b9;
+   font-size: 1.4rem;
+   margin-left: 0.5rem
+
+}
+
+/*    -------------------- */
+
+.conversation {
+   background-image: url('../img/mine.jpg');
+   padding: 30px;
+}
+
+/* ======================= */
+
+/* MAIN
+   ======================= */
+
+main {
+   height: calc(100vh -20px);
+   overflow: hidden;
+}
+
+/*    * send
+      -------------------- */
+
+.conversation li {
+   padding-top: 10px;
+   padding-left: 5px;
+   padding-bottom: 3px;
+   border-radius: 10px;
+   background: #d5f9ba;
+   width: 40%;
+   margin-left: auto;
+   margin-bottom: 20px;
+}
+
+.conversation li.sent {
+   background: white;
+   margin-left: 0
+}
+
+.date {
+   font-size: 60%;
+   opacity: 0.4;
+   text-align: right;
+}
+
+/*    -------------------- */
+
+/* ======================= */
+
+/* FOOTER
+   ======================= */
+
+/*    * send
+      -------------------- */
+      .send {
+         background: #f3eeea;
+         padding: 10px;
+         font-size: 1.4rem
+      }
+      .send input {
+         padding: 0.7rem;
+         border: none
+      }
+      .send i {
+         color: #6a7376;
+         padding-left: 15px;
+         padding-right: 15px;
+      }
+
+
+/*    -------------------- */
+
+/* ======================= */
+
+/* TEMPLATE
+   ======================= */
+
+/*    * stuff
+      -------------------- */
+
+/*    -------------------- */
+
+/* ======================= */

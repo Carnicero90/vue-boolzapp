@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="css/my_frame.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- VUE CONTAINER -->
+    <div id="root">
+        <div class="main-wrapper flexer col container">
+            <main class="flexer boh">
+                <div class="left flexer col">
+                    <!-- div.left.sect-header -->
+                    <div class="sect-header no-shrink flexer center-cross">
+                        <div class="user-pic"><img src="img/avatar_io.jpg" alt="pic" class="rounded"></div>
+                        <div class="user-name grower">
+                            <p>Nome Utente</p>
+                        </div>
+                        <div class="actions">
+                            <i class="fas fa-circle-notch"></i>
+                            <i class="fas fa-comment-alt"></i>
+                            <i class="fas fa-ellipsis-v"></i>
+                        </div>
+                    </div>
+                    <!-- END div.left.sect-header -->
+
+                    <div class="no-shrink">
+                        Ricevi nuove notifiche
+                    </div>
+                    <div class="search">
+                        <input type="text" placeholder="Cerca o inizia nuova chat"
+                            aria-label="Cerca o inizia nuova chat">
+                    </div>
+                    <ul class="conv-list grower shrinker">
+                        <li v-for="(item, index) in contacts" class="flexer" @click="activeConversation = index">
+                            <img :src=`img/avatar${item.avatar}.jpg` alt="" class="rounded">
+                            <span>{{ item.name }}</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="right flexer col">
+                    <div class="sect-header no-shrink flexer center-cross">
+                        <div class="user-pic"><img :src=`img/avatar${contacts[activeConversation].avatar}.jpg` alt="pic"
+                                class="rounded"></div>
+                        <div class="user-name flexer-col grower">
+                            <p>{{ contacts[activeConversation].name }}</p>
+                            <p>Ultimo accesso oggi alle</p>
+                        </div>
+                        <div class="actions">
+                            <i class="fas fa-search"></i>
+                            <i class="fas fa-paperclip"></i>
+                            <i class="fas fa-ellipsis-v"></i>
+                        </div>
+
+                    </div>
+                    <div class="conversation grower shrinker">
+                        <li v-for="item in contacts[activeConversation].messages" :class="{ sent: item.sent }">
+                            <p>{{ item.text }}</p>
+                            <p class="date">{{ item.date }}</p>
+                        </li>
+
+                    </div>
+                    <!-- div.send -->
+                    <div class="send flexer center-cross">
+                        <i class="far fa-smile"></i>
+                        <div class="grower">
+                            <input name="" id="" placeholder="Scrivi un messaggio">
+                        </div>
+
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <!-- END div.send -->
+                </div>
+            </main>
+        </div>
+        <!-- HEADER -->
+        <!-- END HEADER -->
+
+        <!-- MAIN -->
+        <!-- END MAIN -->
+
+        <!-- FOOTER -->
+        <!-- END FOOTER -->
+    </div>
+    <!-- END VUE CONTAINER -->
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
