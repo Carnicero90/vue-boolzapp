@@ -21,7 +21,7 @@
         <div class="main-wrapper flexer col">
 
             <!-- MAIN -->
-            <main class="flexer">
+            <main v-cloak class="flexer">
 
                 <!-- div.left -->
                 <div class="left flexer col">
@@ -58,7 +58,7 @@
                             <input type="text" placeholder="Cerca o inizia nuova chat"
                                 aria-label="Cerca o inizia nuova chat">
                         </div>
-                      
+
                     </div>
                     <!-- END div.search -->
 
@@ -97,7 +97,8 @@
                     <!-- div.conversation -->
                     <div id="conv" class="conversation grower shrinker">
                         <ul>
-                            <li v-for="item in contacts[activeConversation].messages" :class="{ sent: item.sent }">
+                            <li v-for="item in contacts[activeConversation].messages" class="conv-li"
+                                :class="{ sent: item.sent }">
                                 <p>{{ item.text }}</p>
                                 <p class="date">{{ item.date }}</p>
                             </li>
@@ -110,10 +111,10 @@
                         <div><i class="far fa-smile"></i></div>
                         <div class="grower">
                             <input name="message" id="message" placeholder="Scrivi un messaggio"
-                            aria-label="Scrivi un messaggio">
+                                aria-label="Scrivi un messaggio">
                         </div>
                         <div><i class="fas fa-microphone"></i></div>
-                        
+
                     </div>
                     <!-- END div.send -->
 
@@ -123,9 +124,12 @@
             </main>
             <!-- END MAIN -->
 
+
         </div>
         <!-- END div.main-wrapper -->
-
+        <!-- <div v-if="disp" v-cloak class="message-date">
+            {{ 'data messaggio (da formattare): '+ activeDate }}
+        </div> -->
     </div>
     <!-- END VUE CONTAINER -->
 

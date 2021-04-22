@@ -89,7 +89,7 @@ var app = new Vue({
                         sent: false
                     }
                 ],
-            },         
+            },
             {
                 name: 'Ian',
                 avatar: '_8',
@@ -114,29 +114,52 @@ var app = new Vue({
 
                 ],
             },
-            
+
         ],
-        activeConversation: 0
+        activeConversation: 0,
+        activeDate: '',
+        // time: -1,
+        // t: 0,
+        // disp: false,
+        // byUser: false
+
     },
     methods: {
         showConversation(index) {
             // TEST
             this.contacts[this.activeConversation].scrolled = document.getElementById('conv').scrollTop
             this.activeConversation = index;
-            setTimeout(() => {
-                document.getElementById('conv').scrollTop =this.contacts[this.activeConversation].scrolled || 999999
-            })
-        }
+            this.$nextTick(() => document.getElementById('conv').scrollTop = this.contacts[this.activeConversation].scrolled || 999999);
+            // this.$nextTick(() => this.byUser = true)
+            
+        },
+        // SUPERTEST, PORCATE BONUS
+        // check() {
+        //     if (!this.byUser) {
+        //         return
+        //     }
+        //     clearTimeout(this.time);
+        //     const a = document.getElementsByClassName('conv-li');
+        //     let count = 0;
+        //     for (element of a) {
+        //         if (element.getClientRects()[0].height > -element.getClientRects()[0].y) {
+        //             this.disp = true;
+        //             break
+        //         }
+        //         count++;
+        //     }
+        //     this.time = setTimeout(() => {
+        //         this.disp = false
+        //     }, this.t);
+        //     this.activeDate = this.contacts[this.activeConversation].messages[count].date;
+        // },
     },
     created() {
         // TEST
-        setTimeout(() => {
-            document.getElementById('conv').scrollTop = 999999
-        })
+        this.$nextTick(()=> document.getElementById('conv').scrollTop = 999999)
     }
 })
 
-// alert(dayjs().format())
 /*
  * function (detailed!) description
  *
