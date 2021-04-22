@@ -19,7 +19,7 @@ var app = new Vue({
                     },
                     {
                         date: '10/01/2020 16:15:22',
-                        text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, cupiditate veniam quos animi necessitatibus, ab, non rerum voluptas labore natus officiis illo sunt quidem adipisci ut? Temporibus voluptas iste et.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, cupiditate veniam quos animi necessitatibus, ab, non rerum voluptas labore natus officiis illo sunt quidem adipisci ut? Temporibus voluptas iste et.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, cupiditate veniam quos animi necessitatibus, ab, non rerum voluptas labore natus officiis illo sunt quidem adipisci ut? Temporibus voluptas iste et.'.repeat(5),
+                        text: 'sfamato!',
                         sent: false
                     },
 
@@ -151,6 +151,7 @@ var app = new Vue({
         filterContacts(filter) {
             return this.contacts.filter((item) => item.name.toLowerCase().includes(filter.toLowerCase()))
         },
+        
         // SUPERTEST, PORCATE BONUS
         // check() {
         //     if (!this.byUser) {

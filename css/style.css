@@ -2,6 +2,7 @@
 #conv {
    position: relative;
 }
+
 .message-date {
    position: absolute;
    top: 100px;
@@ -11,6 +12,15 @@
 }
 [v-cloak] {
    display: none;
+}
+.preview-container {
+   overflow-x: hidden;
+}
+.preview {
+   overflow-x: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   opacity: 0.6;
 }
 
 /* COMMON
@@ -36,7 +46,6 @@ body {
 .main-wrapper {
    padding: 20px 10%;
    background: linear-gradient(to top, #d5dad8 85%, #069588 15%);
-   overflow: hidden;
    height: 100vh;
 }
 
@@ -129,7 +138,7 @@ input {
 
 /*    * .conv-list
          -------------------- */
-
+     
 .conv-list li:hover, .conv-list li.selected {
    background-color: #e9ebeb;
    cursor: pointer;
