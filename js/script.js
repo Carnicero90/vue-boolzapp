@@ -4,6 +4,22 @@ var app = new Vue({
     el: '#root',
     data: {
         contacts: [{
+            name: 'Manuele Volponi',
+            avatar: '_4',
+            scrolled: 0,
+            messages: [
+                {
+                    date: '23/04/2021 15:30:55',
+                    text: 'Dovrei farti una statua per quanto il tuo snippet sulle scrollbar mi ha semplificato la vita.',
+                    sent: true
+                },
+                {
+                    date: '23/04/2021 15:50:00',
+                    text: 'Ok.',
+                    sent: false
+                }
+            ],
+        },{
             name: 'Alessandro Scolozzi',
             avatar: '_5',
             scrolled: 0,
@@ -172,7 +188,10 @@ var app = new Vue({
     },
     methods: {
         showConversation(index) {
-            // TEST
+            clearTimeout(this.time);
+            this.showOverflow = false;
+
+            this.disp = false;
             this.contacts[this.activeConversation].scrolled = document.getElementById('conv').scrollTop
             this.activeConversation = index;
             this.$nextTick(() => document.getElementById('conv').scrollTop = this.contacts[this.activeConversation].scrolled || 999999);
@@ -213,66 +232,67 @@ var app = new Vue({
         check() {
             if (document.getElementById('conv').scrollHeight > document.getElementById('conv').clientHeight) {
             clearTimeout(this.time);
-            const a = document.getElementsByClassName('conv-li');
-            let count = 0;
-            for (element of a) {
-                if (element.getClientRects()[0].height > -element.getClientRects()[0].y) {
-
-                    this.disp = true;
-                    break
+            this.showOverflow = true;
+            this.disp = true;
+            const a = Array.from(document.getElementsByClassName('mess-date'));
+            a.every((item) => {
+                //120 è sostanzialmente l'offsetTop del contenitore + qualche calcolo ancora "a mano"
+                if (item.getClientRects()[0].y < 120) {
+                    let b = item.innerHTML
+                    // alert(b)
+                    this.activeDate = b;
+                    return true
                 }
-                count++;
-            }
-            
-                this.showOverflow = true
+            })
+
             
             this.time = setTimeout(() => {
                 this.disp = false
                 this.showOverflow = false
             }, this.t);
-            this.activeDate = this.contacts[this.activeConversation].messages[count].date;
         }},
         formatDate(date) {
-            const d = date.split('/');
-            switch (d[1]) {
-                case '01':
-                    d[1] = 'GENNAIO';
-                    break;
-                case '02':
-                    d[1] = 'FEBBRAIO';
-                    break;
-                case '03':
-                    d[1] = 'MARZO';
-                    break;
-                case '04':
-                    d[1] = 'APRILE';
-                    break;
-                case '05':
-                    d[1] = 'MAGGIO';
-                    break;
-                case '06':
-                    d[1] = 'GIUGNO';
-                    break;
-                case '07':
-                    d[1] = 'LUGLIO';
-                    break;
-                case '08':
-                    d[1] = 'AGOSTO';
-                    break;
-                case '09':
-                    d[1] = 'SETTEMBRE';
-                    break;
-                case '10':
-                    d[1] = 'OTTOBRE';
-                    break;
-                case '11':
-                    d[1] = 'NOVEMBRE';
-                    break;
-                case '12':
-                    d[1] = 'DICEMBRE';
-                    break;
-            }
-            return d.join(' ')
+            // const d = date.split('/');
+            // switch (d[1]) {
+            //     case '01':
+            //         d[1] = 'GENNAIO';
+            //         break;
+            //     case '02':
+            //         d[1] = 'FEBBRAIO';
+            //         break;
+            //     case '03':
+            //         d[1] = 'MARZO';
+            //         break;
+            //     case '04':
+            //         d[1] = 'APRILE';
+            //         break;
+            //     case '05':
+            //         d[1] = 'MAGGIO';
+            //         break;
+            //     case '06':
+            //         d[1] = 'GIUGNO';
+            //         break;
+            //     case '07':
+            //         d[1] = 'LUGLIO';
+            //         break;
+            //     case '08':
+            //         d[1] = 'AGOSTO';
+            //         break;
+            //     case '09':
+            //         d[1] = 'SETTEMBRE';
+            //         break;
+            //     case '10':
+            //         d[1] = 'OTTOBRE';
+            //         break;
+            //     case '11':
+            //         d[1] = 'NOVEMBRE';
+            //         break;
+            //     case '12':
+            //         d[1] = 'DICEMBRE';
+            //         break;
+            // }
+            // return d.join(' ')
+            return date
         }
     },
     created() {
