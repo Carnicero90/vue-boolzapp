@@ -211,7 +211,8 @@ var app = new Vue({
 
         // SUPERTEST, PORCATE BONUS
         check() {
-            clearTimeout(this.time)
+            if (document.getElementById('conv').scrollHeight > document.getElementById('conv').clientHeight) {
+            clearTimeout(this.time);
             const a = document.getElementsByClassName('conv-li');
             let count = 0;
             for (element of a) {
@@ -222,15 +223,15 @@ var app = new Vue({
                 }
                 count++;
             }
-            if (document.getElementById('conv').scrollHeight > document.getElementById('conv').clientHeight) {
+            
                 this.showOverflow = true
-            }
+            
             this.time = setTimeout(() => {
                 this.disp = false
                 this.showOverflow = false
             }, this.t);
             this.activeDate = this.contacts[this.activeConversation].messages[count].date;
-        },
+        }},
         formatDate(date) {
             const d = date.split('/');
             switch (d[1]) {
