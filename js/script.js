@@ -1,3 +1,5 @@
+
+
 var app = new Vue({
     el: '#root',
     data: {
@@ -165,6 +167,7 @@ var app = new Vue({
         time: -1,
         t: 1500,
         disp: false,
+        showOverflow: false,
         filter: '',
     },
     methods: {
@@ -219,8 +222,10 @@ var app = new Vue({
                 }
                 count++;
             }
+            this.showOverflow = true;
             this.time = setTimeout(() => {
                 this.disp = false
+                this.showOverflow = false
             }, this.t);
             this.activeDate = this.contacts[this.activeConversation].messages[count].date;
         },

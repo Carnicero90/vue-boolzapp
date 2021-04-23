@@ -100,7 +100,8 @@
 
                     <!-- div.conversation -->
                     <div id="conv" class="conversation grower shrinker"
-                    @scroll="check()">
+                     @wheel="check()"
+                     :class="{ showOverflow: showOverflow }">
                         <ul>
                             <li v-for="(item, index) in contacts[activeConversation].messages">
                                 <p class='mess-date' v-if=" compareDate(index) ">{{ formatDate(item.date.slice(0,10)) }}</p>

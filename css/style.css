@@ -43,6 +43,8 @@
    opacity: 0.6;
 }
 
+
+
 /* COMMON
    ======================= */
 
@@ -198,8 +200,12 @@ input {
       -------------------- */
 
 .conversation {
+   overflow-y: hidden;
    background-image: url('../img/mine.jpg');
    padding: 30px;
+}
+.conversation.showOverflow  {
+   overflow-y: auto;
 }
 
 .conv-li {
