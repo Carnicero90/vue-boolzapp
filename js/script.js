@@ -235,9 +235,9 @@ var app = new Vue({
             this.showOverflow = true;
             this.disp = true;
             const a = Array.from(document.getElementsByClassName('mess-date'));
+            const param = document.getElementsByClassName('mess-date')[0].offsetTop + document.getElementsByClassName('mess-date')[0].clientHeight
             a.every((item) => {
-                //120 è sostanzialmente l'offsetTop del contenitore + qualche calcolo ancora "a mano"
-                if (item.getClientRects()[0].y < 120) {
+                if (item.getClientRects()[0].y < param) {
                     let b = item.innerHTML
                     // alert(b)
                     this.activeDate = b;
