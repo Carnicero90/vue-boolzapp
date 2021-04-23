@@ -103,7 +103,7 @@
                     @scroll="check()">
                         <ul>
                             <li v-for="(item, index) in contacts[activeConversation].messages">
-                                <p class='mess-date' v-if=" compareDate(index) ">{{ item.date.slice(0,10) }}</p>
+                                <p class='mess-date' v-if=" compareDate(index) ">{{ formatDate(item.date.slice(0,10)) }}</p>
                                 <div class="conv-li"  class="conv-li"
                                 :class="{ sent: item.sent }">
                                     <p>{{ item.text }}</p>
@@ -112,6 +112,7 @@
                              
                             </li>
                         </ul>
+                     
                     </div>
                     <!-- END div.conversation -->
 
@@ -130,6 +131,10 @@
                     </div>
                     <!-- END div.send -->
 
+                    <div :class="{show: disp}" v-cloak class="message-date">
+                        {{ formatDate(activeDate.slice(0,10)) }}
+                    </div>
+
                 </div>
                 <!-- END div.right -->
 
@@ -139,9 +144,7 @@
 
         </div>
         <!-- END div.main-wrapper -->
-        <div :class="{show: disp}" v-cloak class="message-date">
-            {{ activeDate.slice(0,10) }}
-        </div>
+      
     </div>
     <!-- END VUE CONTAINER -->
 
