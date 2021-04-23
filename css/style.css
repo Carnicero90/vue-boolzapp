@@ -9,7 +9,7 @@
 
 .message-date {
    position: absolute;
-   top: 83px;
+   top: 100px;
    right: 50%;
    -webkit-transform: translateX(50%);
        -ms-transform: translateX(50%);
@@ -199,7 +199,8 @@ input {
    padding-bottom: 3px;
    padding-right: 3px;
    border-radius: 10px;
-   width: 40%;
+   min-width: 40%;
+   max-width: 80%;
    margin-bottom: 20px;
    background: white;
    margin-left: 0
@@ -226,7 +227,7 @@ input {
 
 .date {
    padding-top: 5px;
-   font-size: 60%;
+   font-size: 80%;
    opacity: 0.4;
    text-align: right;
 }
