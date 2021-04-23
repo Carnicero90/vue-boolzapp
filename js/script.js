@@ -12,7 +12,7 @@ var app = new Vue({
                     sent: false
                 },
                 {
-                    date: '10/01/2020 15:50:00',
+                    date: '12/01/2020 15:50:00',
                     text: 'No.',
                     sent: true
                 }
@@ -28,7 +28,7 @@ var app = new Vue({
                     sent: false
                 },
                 {
-                    date: '10/01/2020 15:50:00',
+                    date: '12/01/2020 15:50:00',
                     text: 'No.',
                     sent: true
                 }
@@ -111,7 +111,7 @@ var app = new Vue({
                         sent: true
                     },
                     {
-                        date: '28/03/2020 16:15:22',
+                        date: '30/03/2020 16:15:22',
                         text: 'Ah scusa!',
                         sent: false
                     }
@@ -162,11 +162,10 @@ var app = new Vue({
         newMessage: '',
         activeConversation: 0,
         activeDate: '',
-        // time: -1,
-        // t: 0,
-        // disp: false,
-        // byUser: false,
-        filter: ''
+        time: -1,
+        t: 1500,
+        disp: false,
+        filter: '',
     },
     methods: {
         showConversation(index) {
@@ -174,12 +173,10 @@ var app = new Vue({
             this.contacts[this.activeConversation].scrolled = document.getElementById('conv').scrollTop
             this.activeConversation = index;
             this.$nextTick(() => document.getElementById('conv').scrollTop = this.contacts[this.activeConversation].scrolled || 999999);
-            // this.$nextTick(() => this.byUser = true)
-
         },
         sendMessage(message) {
             const newMessage =  {
-                date: '10/01/2020 15:30:55',
+                date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
                 text: message,
                 sent: true
             };
@@ -187,7 +184,7 @@ var app = new Vue({
             this.newMessage = '';
             setTimeout(() => {
                 const autoMessage =  {
-                    date: '10/01/2020 15:30:55',
+                    date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
                     text: 'ok',
                     sent: false
                 };
@@ -199,30 +196,35 @@ var app = new Vue({
         filterContacts(filter) {
             return this.contacts.filter((item) => item.name.toLowerCase().includes(filter.toLowerCase()))
         },
+        compareDate(index) { 
+            // TEST
+            if (!index) { return true}
+            const d = this.contacts[this.activeConversation].messages[index];
+            const e =  this.contacts[this.activeConversation].messages[index - 1];
+            return d.date.slice(0,10) != e.date.slice(0,10)      
+         },
         
         // SUPERTEST, PORCATE BONUS
-        // check() {
-        //     if (!this.byUser) {
-        //         return
-        //     }
-        //     clearTimeout(this.time);
-        //     const a = document.getElementsByClassName('conv-li');
-        //     let count = 0;
-        //     for (element of a) {
-        //         if (element.getClientRects()[0].height > -element.getClientRects()[0].y) {
-        //             this.disp = true;
-        //             break
-        //         }
-        //         count++;
-        //     }
-        //     this.time = setTimeout(() => {
-        //         this.disp = false
-        //     }, this.t);
-        //     this.activeDate = this.contacts[this.activeConversation].messages[count].date;
-        // },
+        check() {
+            clearTimeout(this.time)
+            const a = document.getElementsByClassName('conv-li');
+            let count = 0;
+            for (element of a) {
+                if (element.getClientRects()[0].height > -element.getClientRects()[0].y) {
+                    
+                    this.disp = true;
+                    break
+                }
+                count++;
+            }
+            this.time = setTimeout(() => {
+                this.disp = false
+            }, this.t);
+            this.activeDate = this.contacts[this.activeConversation].messages[count].date;
+        },
     },
     created() {
-        // TEST
+        setInterval(clearTimeout(this.time), 50)
         this.$nextTick(() => document.getElementById('conv').scrollTop = 999999)
     }
 })

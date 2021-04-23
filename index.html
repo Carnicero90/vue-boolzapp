@@ -99,12 +99,17 @@
                     <!-- END div.sect-header -->
 
                     <!-- div.conversation -->
-                    <div id="conv" class="conversation grower shrinker">
+                    <div id="conv" class="conversation grower shrinker"
+                    @scroll="check()">
                         <ul>
-                            <li v-for="item in contacts[activeConversation].messages" class="conv-li"
+                            <li v-for="(item, index) in contacts[activeConversation].messages">
+                                <p class='mess-date' v-if=" compareDate(index) ">{{ item.date.slice(0,10) }}</p>
+                                <div class="conv-li"  class="conv-li"
                                 :class="{ sent: item.sent }">
-                                <p>{{ item.text }}</p>
-                                <p class="date">{{ item.date }}</p>
+                                    <p>{{ item.text }}</p>
+                                    <p class="date">{{ item.date }}</p>
+                                </div>
+                             
                             </li>
                         </ul>
                     </div>
@@ -134,9 +139,9 @@
 
         </div>
         <!-- END div.main-wrapper -->
-        <!-- <div v-if="disp" v-cloak class="message-date">
-            {{ 'data messaggio (da formattare): '+ activeDate }}
-        </div> -->
+        <div :class="{show: disp}" v-cloak class="message-date">
+            {{ activeDate.slice(0,10) }}
+        </div>
     </div>
     <!-- END VUE CONTAINER -->
 
