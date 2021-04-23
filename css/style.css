@@ -12,8 +12,8 @@
    top: 100px;
    right: 50%;
    -webkit-transform: translateX(50%);
-       -ms-transform: translateX(50%);
-           transform: translateX(50%);
+   -ms-transform: translateX(50%);
+   transform: translateX(50%);
    width: 200px;
    opacity: 0;
    visibility: hidden;
@@ -21,20 +21,24 @@
    -o-transition: opacity 2s;
    transition: opacity 2s;
 }
+
 .show {
    opacity: 1;
    visibility: visible;
 }
+
 [v-cloak] {
    display: none;
 }
+
 .preview-container {
    overflow-x: hidden;
 }
+
 .preview {
    overflow-x: hidden;
    -o-text-overflow: ellipsis;
-      text-overflow: ellipsis;
+   text-overflow: ellipsis;
    white-space: nowrap;
    opacity: 0.6;
 }
@@ -57,9 +61,11 @@ body {
 
 .shrinker {
    overflow-y: auto;
-   -ms-overflow-style: none;  /* IE and Edge */
-   scrollbar-width: none; 
-   -webkit-scrollbar-width: none; /* Firefox */
+   -ms-overflow-style: none;
+   /* IE and Edge */
+   scrollbar-width: none;
+   -webkit-scrollbar-width: none;
+   /* Firefox */
 }
 
 .main-wrapper {
@@ -141,13 +147,15 @@ input {
 .search {
    background-color: #fafafa;
 }
+
 .search-input {
    color: #b9bcbe;
    background-color: white;
    -webkit-box-shadow: rgba(0, 0, 0, 0.04) 0px 0px 4px 0px, rgba(0, 0, 0, 0.08) 0px 8px 16px 0px;
-           box-shadow: rgba(0, 0, 0, 0.04) 0px 0px 4px 0px, rgba(0, 0, 0, 0.08) 0px 8px 16px 0px;
+   box-shadow: rgba(0, 0, 0, 0.04) 0px 0px 4px 0px, rgba(0, 0, 0, 0.08) 0px 8px 16px 0px;
    border-radius: 5px;
 }
+
 .search input {
    padding: 3px;
    padding-left: 20px;
@@ -160,11 +168,12 @@ input {
 
 /*    * .conv-list
          -------------------- */
-     
+
 .conv-list li:hover, .conv-list li.selected {
    background-color: #e9ebeb;
    cursor: pointer;
 }
+
 .conv-list li:nth-of-type(1n+2) {
    border-top: 1px solid lightgrey
 }
@@ -199,7 +208,10 @@ input {
    padding-bottom: 3px;
    padding-right: 3px;
    border-radius: 10px;
-   min-width: 40%;
+   width: -webkit-max-content;
+   width: -moz-max-content;
+   width: max-content;
+   min-width: 30%;
    max-width: 80%;
    margin-bottom: 20px;
    background: white;
@@ -209,8 +221,6 @@ input {
 .conv-li.sent {
    background: #d5f9ba;
    margin-left: auto;
-
-
 }
 
 .mess-date, .message-date {
@@ -218,7 +228,7 @@ input {
    width: -moz-fit-content;
    width: fit-content;
    margin: auto;
-   background-color:rgb(147, 209, 206);
+   background-color: rgb(147, 209, 206);
    margin-bottom: 10px;
    color: rgb(77, 75, 75);
    padding: 4px;
@@ -241,10 +251,12 @@ input {
    background: #f3eeea;
    font-size: 1.4rem
 }
+
 .send .grower {
    padding-left: 10px;
    padding-right: 10px;
 }
+
 .send input {
    padding: 0.7rem;
    border: none;

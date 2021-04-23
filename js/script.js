@@ -189,8 +189,10 @@ var app = new Vue({
                     sent: false
                 };
                 this.contacts[this.activeConversation].messages.push(autoMessage);
+                this.$nextTick(() => document.getElementById('conv').scrollTop = 999999);
             }, 1000);
             this.$nextTick(() => document.getElementById('conv').scrollTop = 999999);
+
         },
 
         filterContacts(filter) {
