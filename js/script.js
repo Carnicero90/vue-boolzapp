@@ -222,7 +222,9 @@ var app = new Vue({
                 }
                 count++;
             }
-            this.showOverflow = true;
+            if (document.getElementById('conv').scrollHeight > document.getElementById('conv').clientHeight) {
+                this.showOverflow = true
+            }
             this.time = setTimeout(() => {
                 this.disp = false
                 this.showOverflow = false
