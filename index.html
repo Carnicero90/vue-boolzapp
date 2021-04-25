@@ -27,7 +27,7 @@
                 <div class="left flexer col">
                     <!-- div.left.sect-header -->
                     <div class="sect-header no-shrink flexer center-cross lr-standard-pad">
-                        <div class="user-pic"><img src="img/avatar_io.jpg" alt="pic" class="rounded"></div>
+                        <div class="user-pic"><img src="img/self.jpg" alt="pic" class="rounded"></div>
                         <div class="user-name grower">
                             <p>Nome Utente</p>
                         </div>
@@ -104,7 +104,7 @@
                      :class="{ showOverflow: showOverflow }">
                         <ul>
                             <li v-for="(item, index) in contacts[activeConversation].messages">
-                                <p class='mess-date' v-if=" compareDate(index) ">{{ formatDate(item.date.slice(0,10)) }}</p>
+                                <p class='mess-date' v-if=" compareDate(index) ">{{ item.dateFormatted }}</p>
                                 <div class="conv-li"  class="conv-li"
                                 :class="{ sent: item.sent }">
                                     <p>{{ item.text }}</p>
@@ -133,7 +133,7 @@
                     <!-- END div.send -->
 
                     <div :class="{show: disp}" v-cloak class="message-date">
-                        {{ formatDate(activeDate.slice(0,10)) }}
+                        {{ activeDate }}
                     </div>
 
                 </div>

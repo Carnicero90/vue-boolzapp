@@ -19,7 +19,7 @@ var app = new Vue({
                     sent: false
                 }
             ],
-        },{
+        }, {
             name: 'Alessandro Scolozzi',
             avatar: '_5',
             scrolled: 0,
@@ -178,22 +178,24 @@ var app = new Vue({
 
         ],
         newMessage: '',
-        activeConversation: 0,
+        activeConversation: 1,
         activeDate: '',
         time: -1,
-        t: 1500,
         disp: false,
         showOverflow: false,
         filter: '',
+        param: 0,
+        activeConvDates: [],
+        dateIndex: 0,
     },
     methods: {
         showConversation(index) {
-            clearTimeout(this.time);
+            this.dateIndex = 0
             this.showOverflow = false;
-
             this.disp = false;
             this.contacts[this.activeConversation].scrolled = document.getElementById('conv').scrollTop
             this.activeConversation = index;
+            this.activeDate = this.activeConvDates[0]
             this.$nextTick(() => document.getElementById('conv').scrollTop = this.contacts[this.activeConversation].scrolled || 999999);
         },
         sendMessage(message) {
@@ -202,6 +204,7 @@ var app = new Vue({
                 text: message,
                 sent: true
             };
+            newMessage.dateFormatted = this.formatDate(newMessage.date)
             this.contacts[this.activeConversation].messages.push(newMessage);
             this.newMessage = '';
             setTimeout(() => {
@@ -210,7 +213,9 @@ var app = new Vue({
                     text: 'ok',
                     sent: false
                 };
+                autoMessage.dateFormatted = this.formatDate(autoMessage.date)
                 this.contacts[this.activeConversation].messages.push(autoMessage);
+                this.activeConvDates = Array.from(document.getElementsByClassName('mess-date')).reverse();
                 this.$nextTick(() => document.getElementById('conv').scrollTop = 999999);
             }, 1000);
             this.$nextTick(() => document.getElementById('conv').scrollTop = 999999);
@@ -230,74 +235,93 @@ var app = new Vue({
 
         // SUPERTEST, PORCATE BONUS
         check() {
-            if (document.getElementById('conv').scrollHeight > document.getElementById('conv').clientHeight) {
+            if (document.getElementById('conv').scrollHeight <= document.getElementById('conv').clientHeight) {
+                return
+                //tolgo sto early exit nella versione finale, però in itinere lascio così perchè è piu chiaro
+            }
             clearTimeout(this.time);
-            this.showOverflow = true;
-            this.disp = true;
-            const a = Array.from(document.getElementsByClassName('mess-date'));
-            const param = document.getElementsByClassName('mess-date')[0].offsetTop + document.getElementsByClassName('mess-date')[0].clientHeight
-            a.every((item) => {
-                if (item.getClientRects()[0].y < param) {
-                    let b = item.innerHTML
-                    // alert(b)
-                    this.activeDate = b;
-                    return true
-                }
-            })
 
-            
+            if (!this.disp) {
+                this.showOverflow = true;
+                this.disp = true;
+            }
+            const d = this.activeConvDates[this.dateIndex];
+            this.activeDate = d.innerHTML;
+            if (this.activeConvDates[this.dateIndex].getBoundingClientRect().y > this.param) {
+                this.dateIndex++
+            }
+            if (this.dateIndex > 0) {
+                if (this.activeConvDates[this.dateIndex - 1].getBoundingClientRect().y < this.param) {
+                    this.dateIndex--
+                }
+            }
+            // for (item of this.activeConvDates) {
+            //     if (item.getClientRects()[0].y < this.param) {
+
+            //         break
+            //     }
+            // }
             this.time = setTimeout(() => {
                 this.disp = false
                 this.showOverflow = false
-            }, this.t);
-        }},
+            }, 1000);
+        },
         formatDate(date) {
-            // const d = date.split('/');
-            // switch (d[1]) {
-            //     case '01':
-            //         d[1] = 'GENNAIO';
-            //         break;
-            //     case '02':
-            //         d[1] = 'FEBBRAIO';
-            //         break;
-            //     case '03':
-            //         d[1] = 'MARZO';
-            //         break;
-            //     case '04':
-            //         d[1] = 'APRILE';
-            //         break;
-            //     case '05':
-            //         d[1] = 'MAGGIO';
-            //         break;
-            //     case '06':
-            //         d[1] = 'GIUGNO';
-            //         break;
-            //     case '07':
-            //         d[1] = 'LUGLIO';
-            //         break;
-            //     case '08':
-            //         d[1] = 'AGOSTO';
-            //         break;
-            //     case '09':
-            //         d[1] = 'SETTEMBRE';
-            //         break;
-            //     case '10':
-            //         d[1] = 'OTTOBRE';
-            //         break;
-            //     case '11':
-            //         d[1] = 'NOVEMBRE';
-            //         break;
-            //     case '12':
-            //         d[1] = 'DICEMBRE';
-            //         break;
-            // }
-            // return d.join(' ')
-            return date
+            const d = date.slice(0, 10).split('/');
+            switch (d[1]) {
+                case '01':
+                    d[1] = 'GENNAIO';
+                    break;
+                case '02':
+                    d[1] = 'FEBBRAIO';
+                    break;
+                case '03':
+                    d[1] = 'MARZO';
+                    break;
+                case '04':
+                    d[1] = 'APRILE';
+                    break;
+                case '05':
+                    d[1] = 'MAGGIO';
+                    break;
+                case '06':
+                    d[1] = 'GIUGNO';
+                    break;
+                case '07':
+                    d[1] = 'LUGLIO';
+                    break;
+                case '08':
+                    d[1] = 'AGOSTO';
+                    break;
+                case '09':
+                    d[1] = 'SETTEMBRE';
+                    break;
+                case '10':
+                    d[1] = 'OTTOBRE';
+                    break;
+                case '11':
+                    d[1] = 'NOVEMBRE';
+                    break;
+                case '12':
+                    d[1] = 'DICEMBRE';
+                    break;
+            }
+            return d.join(' ')
         }
     },
     created() {
-        setInterval(clearTimeout(this.time), 50)
-        this.$nextTick(() => document.getElementById('conv').scrollTop = 999999)
+        // preferisco formattarla a monte che calcolarla dinamicamente ogni volta, però forse non è necessario farlo su created: magari meglio all'apertura  
+        // di una nuova conversazione, vediamo
+        this.contacts.forEach((item) => {
+            item.messages.forEach((message) => {
+                message.dateFormatted = this.formatDate(message.date)
+            })
+        }),
+
+            this.$nextTick(() => this.param = document.getElementsByClassName('mess-date')[0].offsetTop + document.getElementsByClassName('mess-date')[0].clientHeight),
+            this.$nextTick(() => document.getElementById('conv').scrollTop = 999999),
+            this.$nextTick(() => this.activeConvDates = Array.from(document.getElementsByClassName('mess-date')).reverse())
+
     }
 })
 
