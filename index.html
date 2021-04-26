@@ -131,7 +131,7 @@
                     </div>
                     <!-- END div.send -->
 
-                    <div :class="{show: disp}" v-cloak class="message-date">
+                    <div v-if="test_arr[dateIndex]":class="{show: disp}" v-cloak class="message-date">
                         {{ test_arr[dateIndex].innerHTML }}
                     </div>
 
