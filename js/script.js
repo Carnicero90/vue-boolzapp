@@ -3,25 +3,28 @@
 var app = new Vue({
     el: '#root',
     data: {
-        contacts: [{
-            name: 'Manuele Volponi',
-            avatar: '_4',
-            scrolled: 0,
-            messages: [
-                {
-                    date: '23/04/2021 15:30:55',
-                    text: 'Dovrei farti una statua per quanto il tuo snippet sulle scrollbar mi ha semplificato la vita.',
-                    sent: true
-                },
-                {
-                    date: '23/04/2021 15:50:00',
-                    text: 'Ok.',
-                    sent: false
-                }
-            ],
-        }, {
+        contacts: [
+        //     {
+        //     name: 'Manuele Volponi',
+        //     avatar: '_4',
+        //     scrolled: 0,
+        //     messages: [
+        //         {
+        //             date: '23/04/2021 15:30:55',
+        //             text: 'Dovrei farti una statua per quanto il tuo snippet sulle scrollbar mi ha semplificato la vita.',
+        //             sent: true
+        //         },
+        //         {
+        //             date: '23/04/2021 15:50:00',
+        //             text: 'Ok.',
+        //             sent: false
+        //         }
+        //     ],
+        // }, 
+        {
             name: 'Alessandro Scolozzi',
             avatar: '_5',
+            unreads: 0,
             scrolled: 0,
             messages: [
                 {
@@ -39,6 +42,7 @@ var app = new Vue({
             name: 'Donato Riccio',
             avatar: '_7',
             scrolled: 0,
+            unreads: 0,
             messages: [
                 {
                     date: '10/01/2020 15:30:55',
@@ -55,6 +59,7 @@ var app = new Vue({
             name: 'Simone Taccori',
             avatar: '_2',
             scrolled: 0,
+            unreads: 0,
             messages: [
                 {
                     date: '10/01/2020 15:30:55',
@@ -72,6 +77,7 @@ var app = new Vue({
             name: 'Michele',
             avatar: '_1',
             scrolled: 0,
+            unreads: 0,
             messages: [
                 {
                     date: '10/01/2020 15:30:55',
@@ -95,6 +101,7 @@ var app = new Vue({
             name: 'Fabio',
             avatar: '_6',
             scrolled: 0,
+            unreads: 0,
             messages: [
                 {
                     date: '20/03/2020 16:30:00',
@@ -117,6 +124,7 @@ var app = new Vue({
             name: 'Samuele',
             avatar: '_3',
             scrolled: 0,
+            unreads: 0,
             messages: [
                 {
                     date: '28/03/2020 10:10:40',
@@ -156,6 +164,7 @@ var app = new Vue({
             name: 'Ian',
             avatar: '_8',
             scrolled: 0,
+            unreads: 0,
             messages: [
                 {
                     date: '10/01/2020 15:30:55',
@@ -178,7 +187,7 @@ var app = new Vue({
 
         ],
         newMessage: '',
-        activeConversation: 1,
+        activeConversation: 0,
         activeDate: '',
         time: -1,
         disp: false,
@@ -190,13 +199,21 @@ var app = new Vue({
     },
     methods: {
         showConversation(index) {
-            this.dateIndex = 0
+            this.dateIndex = 0;
             this.showOverflow = false;
             this.disp = false;
             this.contacts[this.activeConversation].scrolled = document.getElementById('conv').scrollTop
             this.activeConversation = index;
-            this.activeDate = this.activeConvDates[0]
-            this.$nextTick(() => document.getElementById('conv').scrollTop = this.contacts[this.activeConversation].scrolled || 999999);
+            this.contacts[this.activeConversation].unreads = 0;
+            this.$nextTick(() => {
+                document.getElementById('conv').scrollTop = this.contacts[this.activeConversation].scrolled || 999999;
+                this.activeConvDates = Array.from(document.getElementsByClassName('mess-date')).reverse();
+                // this.activeConvDates = document.getElementsByClassName('mess-date');
+                // this.dateIndex = this.activeConvDates.length -1;
+                // this.activeDate = this.activeConvDates[this.dateIndex].innerHTML;
+
+                this.activeDate = this.activeConvDates[0].innerHTML;
+            })
         },
         sendMessage(message) {
             const newMessage = {
@@ -230,10 +247,9 @@ var app = new Vue({
             if (!index) { return true }
             const d = this.contacts[this.activeConversation].messages[index];
             const e = this.contacts[this.activeConversation].messages[index - 1];
-            return d.date.slice(0, 10) != e.date.slice(0, 10)
+            return d.dateFormatted != e.dateFormatted
         },
 
-        // SUPERTEST, PORCATE BONUS
         check() {
             if (document.getElementById('conv').scrollHeight <= document.getElementById('conv').clientHeight) {
                 return
@@ -245,22 +261,15 @@ var app = new Vue({
                 this.showOverflow = true;
                 this.disp = true;
             }
-            const d = this.activeConvDates[this.dateIndex];
-            this.activeDate = d.innerHTML;
-            if (this.activeConvDates[this.dateIndex].getBoundingClientRect().y > this.param) {
-                this.dateIndex++
-            }
-            if (this.dateIndex > 0) {
-                if (this.activeConvDates[this.dateIndex - 1].getBoundingClientRect().y < this.param) {
-                    this.dateIndex--
-                }
-            }
-            // for (item of this.activeConvDates) {
-            //     if (item.getClientRects()[0].y < this.param) {
+            this.activeDate = this.activeConvDates[this.dateIndex].innerHTML;
 
-            //         break
-            //     }
-            // }
+            if (this.dateIndex > 0 && this.activeConvDates[this.dateIndex - 1].getBoundingClientRect().y < this.param) {
+                this.dateIndex--;
+
+            } else if (this.activeConvDates[this.dateIndex].getBoundingClientRect().y > this.param) {
+                this.dateIndex++;
+            }
+
             this.time = setTimeout(() => {
                 this.disp = false
                 this.showOverflow = false
@@ -320,9 +329,30 @@ var app = new Vue({
 
             this.$nextTick(() => this.param = document.getElementsByClassName('mess-date')[0].offsetTop + document.getElementsByClassName('mess-date')[0].clientHeight),
             this.$nextTick(() => document.getElementById('conv').scrollTop = 999999),
-            this.$nextTick(() => this.activeConvDates = Array.from(document.getElementsByClassName('mess-date')).reverse())
+            this.$nextTick(() => this.activeConvDates = Array.from(document.getElementsByClassName('mess-date')).reverse()),
+            setTimeout(() => {
+                const autoMessage = {
+                    date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+                    text: 'Ragazzi, venite un attimo su Zoom?',
+                    sent: false
+                };
+                autoMessage.dateFormatted = this.formatDate(autoMessage.date);
+                this.contacts[0].messages.push(autoMessage);
+                this.contacts[0].unreads += 1
+            }, 5000),
+            setTimeout(() => {
+                const autoMessage = {
+                    date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+                    text: 'Sbrigatevi!',
+                    sent: false
+                };
+                autoMessage.dateFormatted = this.formatDate(autoMessage.date);
+                this.contacts[0].messages.push(autoMessage);
+                this.contacts[0].unreads += 1
+            }, 8000)
 
     }
+    
 })
 
 /*

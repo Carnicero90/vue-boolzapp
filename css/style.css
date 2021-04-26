@@ -6,7 +6,15 @@
 */
 
 /* TEST */
-
+.unread {
+   align-self: center;
+   background-color: green;
+   width: 1.2rem;
+   line-height: 1.2rem;
+   color: white;
+   text-align: center;
+   vertical-align: middle
+}
 * {
    scrollbar-width: 10px;
 }
