@@ -190,7 +190,7 @@ input {
 /*    * .conv-list
          -------------------- */
 
-.conv-list li:hover, .conv-list li.selected {
+.conv-list li:hover, .conv-list li.selected, .dropdown:hover {
    background-color: #e9ebeb;
    cursor: pointer;
 }
@@ -233,7 +233,7 @@ input {
    padding-top: 10px;
    padding-left: 5px;
    padding-bottom: 3px;
-   padding-right: 3px;
+   padding-right: 15px;
    border-radius: 10px;
    width: -webkit-max-content;
    width: -moz-max-content;
@@ -241,8 +241,29 @@ input {
    min-width: 30%;
    max-width: 80%;
    margin-bottom: 20px;
+   position: relative;
    background: white;
    margin-left: 0
+}
+.drop {
+   position: absolute;
+   top: 5px;
+   right: 5px;
+   font-size: 60%;
+   display: none;
+}
+.conv-li:hover .drop {
+   display: block;
+}
+
+.dropdown {
+   background: white;
+   padding: 10px 3px;
+   position: absolute;
+   top: 20px;
+   right: 0;
+   border: 1px solid black;
+   z-index: 999;
 }
 
 .conv-li.sent {

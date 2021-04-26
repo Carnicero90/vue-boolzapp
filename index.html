@@ -29,7 +29,7 @@
                     <div class="sect-header no-shrink flexer center-cross lr-standard-pad">
                         <div class="user-pic"><img src="img/self.jpg" alt="pic" class="rounded"></div>
                         <div class="user-name grower">
-                            <p>Nome Utente</p>
+                            <p>Daniil Dubov</p>
                         </div>
                         <div class="actions">
                             <i class="fas fa-circle-notch"></i>
@@ -70,7 +70,7 @@
                             <img :src=`img/avatar${item.avatar}.jpg` alt="" class="rounded no-shrink">
                             <div class="preview-container flexer col around grower">
                                 <span>{{ item.name }}</span>
-                                <p class="preview">{{ item.messages[item.messages.length-1].text }}</p>
+                                <p v-if="item.messages.length" class="preview">{{ item.messages[item.messages.length-1].text }}</p>
                             </div>
                             <div class="unread rounded no-shrink" v-show="item.unreads">{{ item.unreads }}</div>
 
@@ -90,7 +90,7 @@
                                 class="rounded"></div>
                         <div class="user-name flexer-col grower">
                             <p>{{ contacts[activeConversation].name }}</p>
-                            <p>Ultimo accesso oggi alle</p>
+                            <p>Ultimo accesso: {{ contacts[activeConversation].lastAccess }}</p>
                         </div>
                         <div class="actions">
                             <i class="fas fa-search"></i>
@@ -107,8 +107,11 @@
                             <li v-for="(item, index) in contacts[activeConversation].messages">
                                 <p class='mess-date' v-if=" compareDate(index) ">{{ item.dateFormatted }}</p>
                                 <div class="conv-li" :class="{ sent: item.sent }">
+                                    <div class="dropdown" v-if="item.clicked"><span @click="rmMessage(index)">Elimina messaggio</span>     </div>
+
                                     <p>{{ item.text }}</p>
                                     <p class="date">{{ item.date.slice(10,16) }}</p>
+                                    <div class="drop" @click="item.clicked = !item.clicked"><i class="fas fa-chevron-down"></i></div>
                                 </div>
                             </li>
                         </ul>

@@ -30,12 +30,15 @@ var app = new Vue({
                     {
                         date: '10/01/2020 15:30:55',
                         text: 'Metti i commenti!',
-                        sent: false
+                        sent: false,
+                        clicked: false
                     },
                     {
                         date: '12/01/2020 15:50:00',
                         text: 'No.',
-                        sent: true
+                        sent: true,
+                        clicked: false
+
                     }
                 ],
             }, {
@@ -47,12 +50,16 @@ var app = new Vue({
                     {
                         date: '10/01/2020 15:30:55',
                         text: 'Attieniti alle consegne!',
-                        sent: false
+                        sent: false,
+                        clicked: false
+
                     },
                     {
                         date: '12/01/2020 15:50:00',
                         text: 'No.',
-                        sent: true
+                        sent: true,
+                        clicked: false
+
                     }
                 ],
             }, {
@@ -64,12 +71,16 @@ var app = new Vue({
                     {
                         date: '10/01/2020 15:30:55',
                         text: 'Scrivi bel codice!',
-                        sent: false
+                        sent: false,
+                        clicked: false
+
                     },
                     {
                         date: '10/01/2020 15:50:00',
                         text: 'No.',
-                        sent: true
+                        sent: true,
+                        clicked: false
+
                     }
                 ],
             },
@@ -82,17 +93,23 @@ var app = new Vue({
                     {
                         date: '10/01/2020 15:30:55',
                         text: 'Hai portato a spasso il cane?',
-                        sent: true
+                        sent: true,
+                        clicked: false
+
                     },
                     {
                         date: '10/01/2020 15:50:00',
                         text: 'Ricordati di dargli da mangiare',
-                        sent: true
+                        sent: true,
+                        clicked: false
+
                     },
                     {
                         date: '10/01/2020 16:15:22',
                         text: 'sfamato!',
-                        sent: false
+                        sent: false,
+                        clicked: false
+
                     },
 
                 ],
@@ -106,17 +123,23 @@ var app = new Vue({
                     {
                         date: '20/03/2020 16:30:00',
                         text: 'Ciao come stai?',
-                        sent: true
+                        sent: true,
+                        clicked: false
+
                     },
                     {
                         date: '20/03/2020 16:30:55',
                         text: 'Bene grazie! Stasera ci vediamo?',
-                        sent: false
+                        sent: false,
+                        clicked: false
+
                     },
                     {
                         date: '20/03/2020 16:35:00',
                         text: 'Mi piacerebbe ma devo andare a fare la spesa.',
-                        sent: true
+                        sent: true,
+                        clicked: false
+
                     }
                 ],
             },
@@ -129,17 +152,23 @@ var app = new Vue({
                     {
                         date: '28/03/2020 10:10:40',
                         text: 'La Marianna va in campagna',
-                        sent: false
+                        sent: false,
+                        clicked: false
+
                     },
                     {
                         date: '28/03/2020 10:20:10',
                         text: 'Sicuro di non aver sbagliato chat?',
-                        sent: true
+                        sent: true,
+                        clicked: false
+
                     },
                     {
                         date: '30/03/2020 16:15:22',
                         text: 'Ah scusa!',
-                        sent: false
+                        sent: false,
+                        clicked: false
+
                     }
                 ],
             },
@@ -169,17 +198,23 @@ var app = new Vue({
                     {
                         date: '10/01/2020 15:30:55',
                         text: 'Hai portato a spasso il cane?',
-                        sent: true
+                        sent: true,
+                        clicked: false
+
                     },
                     {
                         date: '10/01/2020 15:50:00',
                         text: 'Ricordati di dargli da mangiare',
-                        sent: true
+                        sent: true,
+                        clicked: false
+
                     },
                     {
                         date: '10/01/2020 16:15:22',
                         text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, cupiditate veniam quos animi necessitatibus, ab, non rerum voluptas labore natus officiis illo sunt quidem adipisci ut? Temporibus voluptas iste et.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, cupiditate veniam quos animi necessitatibus, ab, non rerum voluptas labore natus officiis illo sunt quidem adipisci ut? Temporibus voluptas iste et.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, cupiditate veniam quos animi necessitatibus, ab, non rerum voluptas labore natus officiis illo sunt quidem adipisci ut? Temporibus voluptas iste et.'.repeat(5),
-                        sent: false
+                        sent: false,
+                        clicked: false
+
                     },
 
                 ],
@@ -189,7 +224,6 @@ var app = new Vue({
         newMessage: '',
         activeConversation: 0,
         activeDate: '',
-        time: -1,
         disp: false,
         showOverflow: false,
         filter: '',
@@ -217,7 +251,8 @@ var app = new Vue({
                 date: now,
                 dateFormatted: this.formatDate(now),
                 text: content,
-                sent: sent
+                sent: sent,
+                clicked: false
             })
             if (index===this.activeConversation) {
                 this.$nextTick(() => document.getElementById('conv').scrollTop = 999999)
@@ -225,6 +260,8 @@ var app = new Vue({
                 this.contacts[index].unreads++
             }
         },
+        rmMessage(index) {
+            return this.contacts[this.activeConversation].messages.splice(index,1)},
         sendMessage(message) {
             this.automex(message, this.activeConversation, true)
             this.newMessage = '';
@@ -243,8 +280,10 @@ var app = new Vue({
             const e = this.contacts[this.activeConversation].messages[index - 1];
             return d.dateFormatted != e.dateFormatted
         },
+        openDrop(index) {},
 
         check() {
+            const a = console.time()
             if (document.getElementById('conv').scrollHeight <= document.getElementById('conv').clientHeight) {
                 return
             }
@@ -256,10 +295,6 @@ var app = new Vue({
                 this.disp = true;
             }
 
-            if (this.test_arr[this.dateIndex].getBoundingClientRect().y < this.test_param) {
-                // console.log(this.test_arr[this.dateIndex])
-            }
-
             for (let i = this.test_arr.length - 1; i >= 0; i--) {
                 if (this.test_arr[i].getBoundingClientRect().y < this.test_param) {
                     this.dateIndex = i;
@@ -267,13 +302,7 @@ var app = new Vue({
                 }
             }
 
-            // if (this.dateIndex < (document.getElementsByClassName('mess-date').length - 1) && this.test_arr[this.dateIndex + 1].getBoundingClientRect().y < this.test_param) {
-            //     this.dateIndex++;
-
-            // } else if (this.test_arr[this.dateIndex].getBoundingClientRect().y > this.test_param) {
-            //     this.dateIndex--;
-            // }
-
+            console.timeEnd(a)
             this.time = setTimeout(() => {
                 this.disp = false
                 this.showOverflow = false
@@ -326,18 +355,16 @@ var app = new Vue({
         // preferisco formattarla a monte che calcolarla dinamicamente ogni volta, però forse non è necessario farlo su created: magari meglio all'apertura  
         // di una nuova conversazione, vediamo
         this.contacts.forEach((item) => 
-        {
+        {   item.lastAccess = item.messages[item.messages.length - 1].date;
             item.messages.forEach((message) => {
                 message.dateFormatted = this.formatDate(message.date)
             })
-        }),
+        });
 
-            setTimeout(() => {
-                this.automex("Ragazzi, venite un attimo da me su Zoom?", 0)
-            }, 5000),
-            setTimeout(() => {
-                this.automex("Sbrigatevi!", 0)
-            }, 6000)
+            setTimeout(() => {this.automex("Ragazzi, venite un attimo da me su Zoom?", 0)}, 5000),
+            setTimeout(() => {this.automex("La Marianna è tornata dalla campagna.", 5)}, 12000),
+            setTimeout(() => {this.automex("Scusa ho sbagliato di nuovo chat", 5)}, 13000)
+
 
         this.$nextTick(() => document.getElementById('conv').scrollTop = 999999)
 
