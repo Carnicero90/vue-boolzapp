@@ -178,12 +178,16 @@ var app = new Vue({
                     {
                         date: '10/01/2020 15:30:55',
                         text: 'Lo sai che ha aperto una nuova pizzeria?',
-                        sent: true
+                        sent: true,
+                        clicked: false
+
                     },
                     {
                         date: '10/01/2020 15:50:00',
                         text: 'Si, ma preferirei andare al cinema',
-                        sent: false
+                        sent: false,
+                        clicked: false
+
                     }
                 ],
             },
@@ -226,7 +230,7 @@ var app = new Vue({
         showOverflow: false,
         filter: '',
         dateIndex: 0,
-        test_param: 125,
+        test_param: 125, //TODO rimettilo non hard-coded
         test_arr: document.getElementsByClassName('mess-date')
     },
     methods: {
@@ -281,7 +285,6 @@ var app = new Vue({
         },
 
         check() {
-            const a = console.time()
             if (document.getElementById('conv').scrollHeight <= document.getElementById('conv').clientHeight) {
                 return
             }
@@ -301,7 +304,6 @@ var app = new Vue({
                 }
             }
 
-            console.timeEnd(a)
             this.time = setTimeout(() => {
                 this.disp = false
                 this.showOverflow = false
