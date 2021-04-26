@@ -107,7 +107,7 @@
                             <li v-for="(item, index) in contacts[activeConversation].messages">
                                 <p class='mess-date' v-if=" compareDate(index) ">{{ item.dateFormatted }}</p>
                                 <div class="conv-li" :class="{ sent: item.sent }">
-                                    <div class="dropdown" v-if="item.clicked"><span @click="rmMessage(index)">Elimina messaggio</span>     </div>
+                                    <div class="dropdown"  @click="rmMessage(index)" v-if="item.clicked">Elimina messaggio </div>
 
                                     <p>{{ item.text }}</p>
                                     <p class="date">{{ item.date.slice(10,16) }}</p>
@@ -124,7 +124,8 @@
                         <div class="grower">
                             <input name="message" id="message" placeholder="Scrivi un messaggio"
                                 aria-label="Scrivi un messaggio" v-model="newMessage"
-                                @keyup.enter="sendMessage(newMessage)">
+                                @keyup.enter="sendMessage(newMessage)
+                                ">
                         </div>
                         <div><i class="fas fa-microphone"></i></div>
 

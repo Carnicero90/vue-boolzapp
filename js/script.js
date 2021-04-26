@@ -254,6 +254,7 @@ var app = new Vue({
                 sent: sent,
                 clicked: false
             })
+            if (!sent) {this.contacts[index].lastAccess = now}
             if (index===this.activeConversation) {
                 this.$nextTick(() => document.getElementById('conv').scrollTop = 999999)
             } else {
