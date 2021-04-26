@@ -69,7 +69,7 @@
                             @click="showConversation(contacts.indexOf(item))">
                             <img :src=`img/avatar${item.avatar}.jpg` alt="" class="rounded no-shrink">
                             <div class="preview-container flexer col around grower">
-                                <span>{{ item.name }}</span>
+                                <p class="flexer between"><span>{{ item.name }}</span>  <span class="date-aside">{{ item.lastAccess }}</span></p>
                                 <p v-if="item.messages.length" class="preview">{{ item.messages[item.messages.length-1].text }}</p>
                             </div>
                             <div class="unread rounded no-shrink" v-show="item.unreads">{{ item.unreads }}</div>
