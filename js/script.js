@@ -1,5 +1,3 @@
-
-
 var app = new Vue({
     el: '#root',
     data: {
@@ -276,12 +274,11 @@ var app = new Vue({
             return this.contacts.filter((item) => item.name.toLowerCase().includes(filter.toLowerCase()))
         },
         compareDate(index) {
-            if (!index) { return true }
+            if (!index) { return true } // early exit if item index == 0
             const d = this.contacts[this.activeConversation].messages[index];
             const e = this.contacts[this.activeConversation].messages[index - 1];
             return d.dateFormatted != e.dateFormatted
         },
-        openDrop(index) {},
 
         check() {
             const a = console.time()
@@ -291,11 +288,12 @@ var app = new Vue({
 
             clearTimeout(this.time);
 
+            // show scrollbar and .disp.mess-date
             if (!this.disp) {
                 this.showOverflow = true;
                 this.disp = true;
             }
-
+            // find index of last item of test_arr that is still outside viewport (more or less)
             for (let i = this.test_arr.length - 1; i >= 0; i--) {
                 if (this.test_arr[i].getBoundingClientRect().y < this.test_param) {
                     this.dateIndex = i;
@@ -383,4 +381,3 @@ var app = new Vue({
  *
  * @return || description
 */
-
