@@ -4,186 +4,186 @@ var app = new Vue({
     el: '#root',
     data: {
         contacts: [
-        //     {
-        //     name: 'Manuele Volponi',
-        //     avatar: '_4',
-        //     scrolled: 0,
-        //     messages: [
-        //         {
-        //             date: '23/04/2021 15:30:55',
-        //             text: 'Dovrei farti una statua per quanto il tuo snippet sulle scrollbar mi ha semplificato la vita.',
-        //             sent: true
-        //         },
-        //         {
-        //             date: '23/04/2021 15:50:00',
-        //             text: 'Ok.',
-        //             sent: false
-        //         }
-        //     ],
-        // }, 
-        {
-            name: 'Alessandro Scolozzi',
-            avatar: '_5',
-            unreads: 0,
-            scrolled: 0,
-            messages: [
-                {
-                    date: '10/01/2020 15:30:55',
-                    text: 'Metti i commenti!',
-                    sent: false
-                },
-                {
-                    date: '12/01/2020 15:50:00',
-                    text: 'No.',
-                    sent: true
-                }
-            ],
-        }, {
-            name: 'Donato Riccio',
-            avatar: '_7',
-            scrolled: 0,
-            unreads: 0,
-            messages: [
-                {
-                    date: '10/01/2020 15:30:55',
-                    text: 'Attieniti alle consegne!',
-                    sent: false
-                },
-                {
-                    date: '12/01/2020 15:50:00',
-                    text: 'No.',
-                    sent: true
-                }
-            ],
-        }, {
-            name: 'Simone Taccori',
-            avatar: '_2',
-            scrolled: 0,
-            unreads: 0,
-            messages: [
-                {
-                    date: '10/01/2020 15:30:55',
-                    text: 'Scrivi bel codice!',
-                    sent: false
-                },
-                {
-                    date: '10/01/2020 15:50:00',
-                    text: 'No.',
-                    sent: true
-                }
-            ],
-        },
-        {
-            name: 'Michele',
-            avatar: '_1',
-            scrolled: 0,
-            unreads: 0,
-            messages: [
-                {
-                    date: '10/01/2020 15:30:55',
-                    text: 'Hai portato a spasso il cane?',
-                    sent: true
-                },
-                {
-                    date: '10/01/2020 15:50:00',
-                    text: 'Ricordati di dargli da mangiare',
-                    sent: true
-                },
-                {
-                    date: '10/01/2020 16:15:22',
-                    text: 'sfamato!',
-                    sent: false
-                },
+            //     {
+            //     name: 'Manuele Volponi',
+            //     avatar: '_4',
+            //     scrolled: 0,
+            //     messages: [
+            //         {
+            //             date: '23/04/2021 15:30:55',
+            //             text: 'Dovrei farti una statua per quanto il tuo snippet sulle scrollbar mi ha semplificato la vita.',
+            //             sent: true
+            //         },
+            //         {
+            //             date: '23/04/2021 15:50:00',
+            //             text: 'Ok.',
+            //             sent: false
+            //         }
+            //     ],
+            // }, 
+            {
+                name: 'Alessandro Scolozzi',
+                avatar: '_5',
+                unreads: 0,
+                scrolled: 0,
+                messages: [
+                    {
+                        date: '10/01/2020 15:30:55',
+                        text: 'Metti i commenti!',
+                        sent: false
+                    },
+                    {
+                        date: '12/01/2020 15:50:00',
+                        text: 'No.',
+                        sent: true
+                    }
+                ],
+            }, {
+                name: 'Donato Riccio',
+                avatar: '_7',
+                scrolled: 0,
+                unreads: 0,
+                messages: [
+                    {
+                        date: '10/01/2020 15:30:55',
+                        text: 'Attieniti alle consegne!',
+                        sent: false
+                    },
+                    {
+                        date: '12/01/2020 15:50:00',
+                        text: 'No.',
+                        sent: true
+                    }
+                ],
+            }, {
+                name: 'Simone Taccori',
+                avatar: '_2',
+                scrolled: 0,
+                unreads: 0,
+                messages: [
+                    {
+                        date: '10/01/2020 15:30:55',
+                        text: 'Scrivi bel codice!',
+                        sent: false
+                    },
+                    {
+                        date: '10/01/2020 15:50:00',
+                        text: 'No.',
+                        sent: true
+                    }
+                ],
+            },
+            {
+                name: 'Michele',
+                avatar: '_1',
+                scrolled: 0,
+                unreads: 0,
+                messages: [
+                    {
+                        date: '10/01/2020 15:30:55',
+                        text: 'Hai portato a spasso il cane?',
+                        sent: true
+                    },
+                    {
+                        date: '10/01/2020 15:50:00',
+                        text: 'Ricordati di dargli da mangiare',
+                        sent: true
+                    },
+                    {
+                        date: '10/01/2020 16:15:22',
+                        text: 'sfamato!',
+                        sent: false
+                    },
 
-            ],
-        },
-        {
-            name: 'Fabio',
-            avatar: '_6',
-            scrolled: 0,
-            unreads: 0,
-            messages: [
-                {
-                    date: '20/03/2020 16:30:00',
-                    text: 'Ciao come stai?',
-                    sent: true
-                },
-                {
-                    date: '20/03/2020 16:30:55',
-                    text: 'Bene grazie! Stasera ci vediamo?',
-                    sent: false
-                },
-                {
-                    date: '20/03/2020 16:35:00',
-                    text: 'Mi piacerebbe ma devo andare a fare la spesa.',
-                    sent: true
-                }
-            ],
-        },
-        {
-            name: 'Samuele',
-            avatar: '_3',
-            scrolled: 0,
-            unreads: 0,
-            messages: [
-                {
-                    date: '28/03/2020 10:10:40',
-                    text: 'La Marianna va in campagna',
-                    sent: false
-                },
-                {
-                    date: '28/03/2020 10:20:10',
-                    text: 'Sicuro di non aver sbagliato chat?',
-                    sent: true
-                },
-                {
-                    date: '30/03/2020 16:15:22',
-                    text: 'Ah scusa!',
-                    sent: false
-                }
-            ],
-        },
-        {
-            name: 'Luisa',
-            avatar: '_4',
-            scrolled: 0,
-            messages: [
-                {
-                    date: '10/01/2020 15:30:55',
-                    text: 'Lo sai che ha aperto una nuova pizzeria?',
-                    sent: true
-                },
-                {
-                    date: '10/01/2020 15:50:00',
-                    text: 'Si, ma preferirei andare al cinema',
-                    sent: false
-                }
-            ],
-        },
-        {
-            name: 'Ian',
-            avatar: '_8',
-            scrolled: 0,
-            unreads: 0,
-            messages: [
-                {
-                    date: '10/01/2020 15:30:55',
-                    text: 'Hai portato a spasso il cane?',
-                    sent: true
-                },
-                {
-                    date: '10/01/2020 15:50:00',
-                    text: 'Ricordati di dargli da mangiare',
-                    sent: true
-                },
-                {
-                    date: '10/01/2020 16:15:22',
-                    text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, cupiditate veniam quos animi necessitatibus, ab, non rerum voluptas labore natus officiis illo sunt quidem adipisci ut? Temporibus voluptas iste et.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, cupiditate veniam quos animi necessitatibus, ab, non rerum voluptas labore natus officiis illo sunt quidem adipisci ut? Temporibus voluptas iste et.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, cupiditate veniam quos animi necessitatibus, ab, non rerum voluptas labore natus officiis illo sunt quidem adipisci ut? Temporibus voluptas iste et.'.repeat(5),
-                    sent: false
-                },
+                ],
+            },
+            {
+                name: 'Fabio',
+                avatar: '_6',
+                scrolled: 0,
+                unreads: 0,
+                messages: [
+                    {
+                        date: '20/03/2020 16:30:00',
+                        text: 'Ciao come stai?',
+                        sent: true
+                    },
+                    {
+                        date: '20/03/2020 16:30:55',
+                        text: 'Bene grazie! Stasera ci vediamo?',
+                        sent: false
+                    },
+                    {
+                        date: '20/03/2020 16:35:00',
+                        text: 'Mi piacerebbe ma devo andare a fare la spesa.',
+                        sent: true
+                    }
+                ],
+            },
+            {
+                name: 'Samuele',
+                avatar: '_3',
+                scrolled: 0,
+                unreads: 0,
+                messages: [
+                    {
+                        date: '28/03/2020 10:10:40',
+                        text: 'La Marianna va in campagna',
+                        sent: false
+                    },
+                    {
+                        date: '28/03/2020 10:20:10',
+                        text: 'Sicuro di non aver sbagliato chat?',
+                        sent: true
+                    },
+                    {
+                        date: '30/03/2020 16:15:22',
+                        text: 'Ah scusa!',
+                        sent: false
+                    }
+                ],
+            },
+            {
+                name: 'Luisa',
+                avatar: '_4',
+                scrolled: 0,
+                messages: [
+                    {
+                        date: '10/01/2020 15:30:55',
+                        text: 'Lo sai che ha aperto una nuova pizzeria?',
+                        sent: true
+                    },
+                    {
+                        date: '10/01/2020 15:50:00',
+                        text: 'Si, ma preferirei andare al cinema',
+                        sent: false
+                    }
+                ],
+            },
+            {
+                name: 'Ian',
+                avatar: '_8',
+                scrolled: 0,
+                unreads: 0,
+                messages: [
+                    {
+                        date: '10/01/2020 15:30:55',
+                        text: 'Hai portato a spasso il cane?',
+                        sent: true
+                    },
+                    {
+                        date: '10/01/2020 15:50:00',
+                        text: 'Ricordati di dargli da mangiare',
+                        sent: true
+                    },
+                    {
+                        date: '10/01/2020 16:15:22',
+                        text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, cupiditate veniam quos animi necessitatibus, ab, non rerum voluptas labore natus officiis illo sunt quidem adipisci ut? Temporibus voluptas iste et.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, cupiditate veniam quos animi necessitatibus, ab, non rerum voluptas labore natus officiis illo sunt quidem adipisci ut? Temporibus voluptas iste et.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, cupiditate veniam quos animi necessitatibus, ab, non rerum voluptas labore natus officiis illo sunt quidem adipisci ut? Temporibus voluptas iste et.'.repeat(5),
+                        sent: false
+                    },
 
-            ],
-        },
+                ],
+            },
 
         ],
         newMessage: '',
@@ -193,49 +193,44 @@ var app = new Vue({
         disp: false,
         showOverflow: false,
         filter: '',
-        param: 0,
-        activeConvDates: [],
         dateIndex: 0,
+        test_param: 125,
+        test_arr: document.getElementsByClassName('mess-date')
     },
     methods: {
         showConversation(index) {
-            this.dateIndex = 0;
+            // hide scrollbar and div.disp
             this.showOverflow = false;
             this.disp = false;
+            // store scrollTop value
             this.contacts[this.activeConversation].scrolled = document.getElementById('conv').scrollTop
+            // change conversation
             this.activeConversation = index;
             this.contacts[this.activeConversation].unreads = 0;
             this.$nextTick(() => {
                 document.getElementById('conv').scrollTop = this.contacts[this.activeConversation].scrolled || 999999;
-                this.activeConvDates = Array.from(document.getElementsByClassName('mess-date')).reverse();
-                // this.activeConvDates = document.getElementsByClassName('mess-date');
-                // this.dateIndex = this.activeConvDates.length -1;
-                // this.activeDate = this.activeConvDates[this.dateIndex].innerHTML;
-
-                this.activeDate = this.activeConvDates[0].innerHTML;
             })
         },
+        automex(content, index, sent=false) {
+            const now = dayjs().format('DD/MM/YYYY HH:mm:ss');
+            this.contacts[index].messages.push({
+                date: now,
+                dateFormatted: this.formatDate(now),
+                text: content,
+                sent: sent
+            })
+            if (index===this.activeConversation) {
+                this.$nextTick(() => document.getElementById('conv').scrollTop = 999999)
+            } else {
+                this.contacts[index].unreads++
+            }
+        },
         sendMessage(message) {
-            const newMessage = {
-                date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
-                text: message,
-                sent: true
-            };
-            newMessage.dateFormatted = this.formatDate(newMessage.date)
-            this.contacts[this.activeConversation].messages.push(newMessage);
+            this.automex(message, this.activeConversation, true)
             this.newMessage = '';
             setTimeout(() => {
-                const autoMessage = {
-                    date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
-                    text: 'ok',
-                    sent: false
-                };
-                autoMessage.dateFormatted = this.formatDate(autoMessage.date)
-                this.contacts[this.activeConversation].messages.push(autoMessage);
-                this.activeConvDates = Array.from(document.getElementsByClassName('mess-date')).reverse();
-                this.$nextTick(() => document.getElementById('conv').scrollTop = 999999);
+                this.automex('Ok.', this.activeConversation)
             }, 1000);
-            this.$nextTick(() => document.getElementById('conv').scrollTop = 999999);
 
         },
 
@@ -243,7 +238,6 @@ var app = new Vue({
             return this.contacts.filter((item) => item.name.toLowerCase().includes(filter.toLowerCase()))
         },
         compareDate(index) {
-            // TEST
             if (!index) { return true }
             const d = this.contacts[this.activeConversation].messages[index];
             const e = this.contacts[this.activeConversation].messages[index - 1];
@@ -253,22 +247,32 @@ var app = new Vue({
         check() {
             if (document.getElementById('conv').scrollHeight <= document.getElementById('conv').clientHeight) {
                 return
-                //tolgo sto early exit nella versione finale, però in itinere lascio così perchè è piu chiaro
             }
+
             clearTimeout(this.time);
 
             if (!this.disp) {
                 this.showOverflow = true;
                 this.disp = true;
             }
-            this.activeDate = this.activeConvDates[this.dateIndex].innerHTML;
 
-            if (this.dateIndex > 0 && this.activeConvDates[this.dateIndex - 1].getBoundingClientRect().y < this.param) {
-                this.dateIndex--;
-
-            } else if (this.activeConvDates[this.dateIndex].getBoundingClientRect().y > this.param) {
-                this.dateIndex++;
+            if (this.test_arr[this.dateIndex].getBoundingClientRect().y < this.test_param) {
+                // console.log(this.test_arr[this.dateIndex])
             }
+
+            for (let i = this.test_arr.length - 1; i >= 0; i--) {
+                if (this.test_arr[i].getBoundingClientRect().y < this.test_param) {
+                    this.dateIndex = i;
+                    break
+                }
+            }
+
+            // if (this.dateIndex < (document.getElementsByClassName('mess-date').length - 1) && this.test_arr[this.dateIndex + 1].getBoundingClientRect().y < this.test_param) {
+            //     this.dateIndex++;
+
+            // } else if (this.test_arr[this.dateIndex].getBoundingClientRect().y > this.test_param) {
+            //     this.dateIndex--;
+            // }
 
             this.time = setTimeout(() => {
                 this.disp = false
@@ -321,38 +325,26 @@ var app = new Vue({
     created() {
         // preferisco formattarla a monte che calcolarla dinamicamente ogni volta, però forse non è necessario farlo su created: magari meglio all'apertura  
         // di una nuova conversazione, vediamo
-        this.contacts.forEach((item) => {
+        this.contacts.forEach((item) => 
+        {
             item.messages.forEach((message) => {
                 message.dateFormatted = this.formatDate(message.date)
             })
         }),
 
-            this.$nextTick(() => this.param = document.getElementsByClassName('mess-date')[0].offsetTop + document.getElementsByClassName('mess-date')[0].clientHeight),
-            this.$nextTick(() => document.getElementById('conv').scrollTop = 999999),
-            this.$nextTick(() => this.activeConvDates = Array.from(document.getElementsByClassName('mess-date')).reverse()),
             setTimeout(() => {
-                const autoMessage = {
-                    date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
-                    text: 'Ragazzi, venite un attimo su Zoom?',
-                    sent: false
-                };
-                autoMessage.dateFormatted = this.formatDate(autoMessage.date);
-                this.contacts[0].messages.push(autoMessage);
-                this.contacts[0].unreads += 1
+                this.automex("Ragazzi, venite un attimo da me su Zoom?", 0)
             }, 5000),
             setTimeout(() => {
-                const autoMessage = {
-                    date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
-                    text: 'Sbrigatevi!',
-                    sent: false
-                };
-                autoMessage.dateFormatted = this.formatDate(autoMessage.date);
-                this.contacts[0].messages.push(autoMessage);
-                this.contacts[0].unreads += 1
-            }, 8000)
+                this.automex("Sbrigatevi!", 0)
+            }, 6000)
 
-    }
-    
+        this.$nextTick(() => document.getElementById('conv').scrollTop = 999999)
+
+
+    },
+
+
 })
 
 /*
